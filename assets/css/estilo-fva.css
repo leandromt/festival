@@ -42,7 +42,7 @@ article {
 /*============== BACKGROUNDS ==============*/
 body {
     background-color: #16071F;
-    background-image: url("../imgs/bg_vida_e_arte.PNG");
+    background-image: url("../img/bg_vida_e_arte.PNG");
     background-repeat: repeat-x;
     background-position: 0 757px;
     min-height: 6000px;
@@ -144,7 +144,7 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
 /*============== HEADER DA PAGINA ==============*/
 .header-page {
     height: 757px;
-    background-image: url("../imgs/BG_topo.png");
+    background-image: url("../img/BG_topo.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -187,8 +187,8 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     background-position: center;
     top: -10px;
 }
-.countDown:before {background-image: url("../imgs/contagem_regressiva_esquerda.PNG"); left: -290px}
-.countDown:after {background-image: url("../imgs/contagem_regressiva_direita.PNG"); right: -290px}
+.countDown:before {background-image: url("../img/contagem_regressiva_esquerda.PNG"); left: -290px}
+.countDown:after {background-image: url("../img/contagem_regressiva_direita.PNG"); right: -290px}
 
 .countDown span {
     display: inline-block;
@@ -295,9 +295,9 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     height: 100%;
     z-index: -1
 }
-.sobre-imgs figure:nth-of-type(1):after {background-image: url("../imgs/cor_sobre_um.PNG")}
-.sobre-imgs figure:nth-of-type(2):after {background-image: url("../imgs/cor_sobre_dois.PNG")}
-.sobre-imgs figure:nth-of-type(3):after {background-image: url("../imgs/cor_sobre_tres.PNG")}
+.sobre-imgs figure:nth-of-type(1):after {background-image: url("../img/cor_sobre_um.PNG")}
+.sobre-imgs figure:nth-of-type(2):after {background-image: url("../img/cor_sobre_dois.PNG")}
+.sobre-imgs figure:nth-of-type(3):after {background-image: url("../img/cor_sobre_tres.PNG")}
 /* a classe .look-at-me eh adicionada quando o objeto esta na parte visivel da tela */
 .sobre-imgs.look-at-me figure:nth-of-type(2) {
     -moz-transform: translateY(50px);
@@ -314,7 +314,7 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     transform: translateY(-50px);
 }
 .bg-trailer {
-    background-image: url("../imgs/arabesco_video.PNG");
+    background-image: url("../img/arabesco_video.PNG");
     background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
@@ -356,7 +356,7 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     line-height: 1em
 }
 .attractions {
-    background-image: url("../imgs/arabesco_atracoes.png");
+    background-image: url("../img/arabesco_atracoes.png");
     background-position: top right;
     background-repeat: no-repeat;
     position: relative;
@@ -415,7 +415,7 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     font-family: 'SourceSansPro-Black';
 }
 .separator {
-    background-image: url("../imgs/elemento_musical_rede_social.PNG");
+    background-image: url("../img/elemento_musical_rede_social.PNG");
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center;
