@@ -13,6 +13,18 @@
 	<?php #wp_head() ?>
 </head>
 
+<nav id="navegation" class="nav-wrap">
+    <div class="float-nav container-fluid" role="menubar">
+        <figure class="logo-bar"><img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/img/logo_topo.PNG" alt="Vida &amp; Arte"></figure>
+        <?php wp_nav_menu() ?>
+        <div class="social-btns">
+            <a href="" target="_blank" role="menuitem"><img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/img/topo_face.PNG" alt="Facebook"></a>
+            <a href="" target="_blank" role="menuitem"><img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/img/topo_instagram.PNG" alt="Instagram"></a>
+            <a href="" target="_blank" role="menuitem"><img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/img/topo_twitter.PNG" alt="Twitter"></a>
+        </div>
+    </div>
+</nav>
+
 <body <?php echo body_class() ?>>
 	<header class="header-page container-fluid">
 	    <figure class="logo-fva">
@@ -29,4 +41,4 @@
 	    </div>
 	</header>
 
-	<?php wp_nav_menu() ?>
+	
