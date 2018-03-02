@@ -1,0 +1,12 @@
+============== NOVO TEMA WORDPRESS =============
+
+- wp-content é a única pasta que irá ser alterada
+- criar tema deverá ter a os arquivos míninos (index.php e style.css)
+- a documetnacao do tema ficara no css style.css
+- adicionar a screenshot do Tema
+- o arquivo functions.php centraliza as funcoes especificas do tema
+
+
+
+
+

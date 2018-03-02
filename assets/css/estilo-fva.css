@@ -1,0 +1,445 @@
+/*============== FONTS ==============*/
+@font-face {
+    font-family: 'SourceSansPro-Black';
+    src: url('../fonts/SourceSansPro-Black.eot?#iefix') format('embedded-opentype'),  url('../fonts/SourceSansPro-Black.woff') format('woff'), url('../fonts/SourceSansPro-Black.ttf')  format('truetype'), url('../fonts/SourceSansPro-Black.svg#SourceSansPro-Black') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SourceSansPro-Light';
+    src: url('../fonts/SourceSansPro-Light.eot?#iefix') format('embedded-opentype'),  url('../fonts/SourceSansPro-Light.woff') format('woff'), url('../fonts/SourceSansPro-Light.ttf')  format('truetype'), url('../fonts/SourceSansPro-Light.svg#SourceSansPro-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SourceSansPro-Regular';
+    src: url('../fonts/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),  url('../fonts/SourceSansPro-Regular.woff') format('woff'), url('../fonts/SourceSansPro-Regular.ttf')  format('truetype'), url('../fonts/SourceSansPro-Regular.svg#SourceSansPro-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SourceSansPro-SemiBold';
+    src: url('../fonts/SourceSansPro-SemiBold.eot?#iefix') format('embedded-opentype'),  url('../fonts/SourceSansPro-SemiBold.woff') format('woff'), url('../fonts/SourceSansPro-SemiBold.ttf')  format('truetype'), url('../fonts/SourceSansPro-SemiBold.svg#SourceSansPro-SemiBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ZoojaPro';
+    src: url('../fonts/ZoojaPro.eot?#iefix') format('embedded-opentype'),  url('../fonts/ZoojaPro.otf')  format('opentype'),
+        url('../fonts/ZoojaPro.woff') format('woff'), url('../fonts/ZoojaPro.ttf')  format('truetype'), url('../fonts/ZoojaPro.svg#ZoojaPro') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*============== ARTICLES ==============*/
+article {
+    margin: 100px auto;
+}
+/*============== BACKGROUNDS ==============*/
+body {
+    background-color: #16071F;
+    background-image: url("../imgs/bg_vida_e_arte.PNG");
+    background-repeat: repeat-x;
+    background-position: 0 757px;
+    min-height: 6000px;
+}
+/*============== TITULOS E TEXTO ==============*/
+h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
+.title-bold {
+    font-size: 55px;
+    text-align: center;
+    text-transform: uppercase
+}
+.welcome-title {position: relative}
+.welcome-title:after {
+    content: "2018";
+    font-size: 38px;
+    position: absolute;
+    left: 203px; top: 45px;
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+.welcome-title small {
+    font-size: 16px;
+    letter-spacing: 4px;
+    font-family: 'SourceSansPro-Light';
+    display: block;
+}
+.welcome-title span {
+    display: block;
+    line-height: 1em
+}
+.welcome-title span:nth-of-type(1) {font-size: 55px}
+.welcome-title span:nth-of-type(2) {font-size: 42px}
+.title-tiny {
+    font-family: 'SourceSansPro-Regular';
+    font-size: 18px;
+    text-align: center;
+    font-weight: 100
+}
+/*============== BARRA DE MENU ==============*/
+.nav-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+}
+.float-nav {
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    -webkit-transition: background 1s ease;
+    -moz-transition: background 1s ease;
+    -ms-transition: background 1s ease;
+    -o-transition: background 1s ease;
+    transition: background 1s ease;
+    position: relative
+}
+.logo-bar {
+    width: auto;
+    height: 25px;
+    overflow: hidden;
+    position: absolute;
+    left: 15px;
+    opacity: 0;
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -ms-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
+}
+.float-nav.rolling .logo-bar {opacity: 1}
+.logo-bar img {
+    width: auto;
+    height: 20px;
+}
+/* a classe .rolling eh aplicada quando a pagina rola */
+.float-nav.rolling {background-color: rgba(0, 0, 0, .7)}
+.float-nav a {
+    padding: 0 10px;
+    font-size: 18px;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+.float-nav > a:hover {
+    background-color: #ec3e5f
+}
+.social-btns {margin-left: 20px}
+.social-btns a {
+    padding: 5px;
+}
+/*============== HEADER DA PAGINA ==============*/
+.header-page {
+    height: 757px;
+    background-image: url("../imgs/BG_topo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+.logo-fva {
+    width: 100%;
+    max-width: 327px;
+    height: auto
+}
+
+/*============== CONTAGEM REGRESSIVA ==============*/
+.title-time-remain {
+    font-family: 'SourceSansPro-Light';
+    font-weight: 100;
+    font-size: 30px;
+    text-align: center;
+    margin: 90px 0 12px 0;
+}
+.countDown {
+    font-size: 30px;
+    color: #fff;
+    font-family: 'SourceSansPro-Black', sans-serif;
+    font-weight: 200;
+    border: 1px solid #fff;
+    padding: 0 25px;
+    position: relative
+}
+
+.countDown:before,
+.countDown:after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 73px;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: -10px;
+}
+.countDown:before {background-image: url("../imgs/contagem_regressiva_esquerda.PNG"); left: -290px}
+.countDown:after {background-image: url("../imgs/contagem_regressiva_direita.PNG"); right: -290px}
+
+.countDown span {
+    display: inline-block;
+    border: 0;
+    background: transparent;
+    padding: 5px;
+    width: 83px;
+    text-align: center;
+    position: relative;
+}
+
+.countDown span:after {
+    display: block;
+    font-size: 18px;
+    font-family: 'SourceSansPro-SemiBold';
+    text-transform: uppercase;
+    position: absolute;
+    left: 0;
+    width: 83px;
+    text-align: center;
+    top: 60px;
+}
+
+.countDown span#days:after {
+    content: "Dias"
+}
+
+.countDown span#days.singular:after {
+    content: "Dia"
+}
+
+.countDown span#hours:after {
+    content: "Horas"
+}
+
+.countDown span#hours.singular:after {
+    content: "Hora"
+}
+
+.countDown span#minutes:after {
+    content: "Minutos"
+}
+
+.countDown span#minutes.singular:after {
+    content: "Minuto"
+}
+
+.countDown span#seconds:after {
+    content: "Segundos"
+}
+
+.countDown span#seconds.singular:after {
+    content: "Segundo"
+}
+/*============== CONTEÚDO [HOME] ==============*/
+.logos-content {
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+.logos-content figure {
+    width: auto;
+    height: 64px;
+}
+.logos-content figure:first-of-type {margin-right: 20px}
+.btnDefault {
+    border: 1px solid #fff;
+    font-family: 'SourceSansPro-Black';
+    font-size: 20px;
+    color: #ec3e5f;
+    margin-top: 20px;
+    width: 230px;
+    height: 50px;
+    display: block;
+    text-align: center;
+    line-height: 45px;
+    text-transform: uppercase
+}
+.btnDefault.center {margin: auto}
+.sobre-imgs {
+    position: relative;
+}
+.sobre-imgs figure {
+    display: inline-block;
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -ms-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
+    position: relative;
+    z-index: 1
+}
+.sobre-imgs figure:after {
+    content: "";
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: cover;
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: -1
+}
+.sobre-imgs figure:nth-of-type(1):after {background-image: url("../imgs/cor_sobre_um.PNG")}
+.sobre-imgs figure:nth-of-type(2):after {background-image: url("../imgs/cor_sobre_dois.PNG")}
+.sobre-imgs figure:nth-of-type(3):after {background-image: url("../imgs/cor_sobre_tres.PNG")}
+/* a classe .look-at-me eh adicionada quando o objeto esta na parte visivel da tela */
+.sobre-imgs.look-at-me figure:nth-of-type(2) {
+    -moz-transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -o-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    transform: translateY(50px);
+}
+.sobre-imgs.look-at-me figure:nth-of-type(3) {
+    -moz-transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    transform: translateY(-50px);
+}
+.bg-trailer {
+    background-image: url("../imgs/arabesco_video.PNG");
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.video-wrap {
+    max-width: 855px;
+    max-height: 480px;
+    overflow: hidden;
+    margin: 0 auto
+}
+.item-novidades figure {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    overflow: hidden;
+}
+.item-novidades figure img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    filter: brightness(50%);
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+.item-novidades:hover > figure img {
+    filter: brightness(100%);
+}
+.item-novidades figcaption {
+    font-size: 30px;
+    font-family: 'SourceSansPro-SemiBold';
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1em
+}
+.attractions {
+    background-image: url("../imgs/arabesco_atracoes.png");
+    background-position: top right;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.main-attraction {position: relative}
+.main-attraction:before {
+    content: attr(data-name);
+    font-family: 'SourceSansPro-Black';
+    font-size: 45px;
+    color: #320073;
+    position: absolute;
+    display: block;
+    padding: 10px;
+    background-color: #fff;
+    left: 50%;
+    top: 25px;
+}
+.artists {
+    list-style: none
+}
+.artists li {
+    margin: 0 10px 30px 10px;
+    display: inline-block
+}
+.artists li,
+.artists li figure {
+    width: 220px;
+    height: auto;
+}
+.artists li figure img {
+    width: 220px;
+    height: 185px;
+}
+.artists li figure figcaption {
+    margin-top: 10px;
+    font-family: 'SourceSansPro-Black';
+    font-size: 20px;
+    text-transform: uppercase;
+    overflow: hidden;
+    width: 220px;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+.title-instagram-user {margin-bottom: -50px}
+.title-instagram-user img {
+    width: 38px;
+    height: 38px;
+    margin-right: 10px;
+    display: inline-block;
+}
+.title-instagram-user figcaption {
+    display: inline-block;
+    vertical-align: middle;
+}
+.title-instagram-user figcaption strong {
+    font-family: 'SourceSansPro-Black';
+}
+.separator {
+    background-image: url("../imgs/elemento_musical_rede_social.PNG");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    height: 192px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

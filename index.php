@@ -1,6 +1,7 @@
 <?php
 
 /**
+*
 * The main template file
 *
 **/
@@ -11,10 +12,14 @@
 <?php get_header(); ?>
 <!-- /HEADER -->
 
-<!-- FUNCOES -->
-<?php festival_hello_world(); ?>
-<!-- /FUNCOES -->
+<?php get_template_part( "content", "home" ) ?>
+
+<!-- SIDEBAR -->
+<?php get_sidebar(); ?>
+<!-- /SIDEBAR -->
 
 <!-- FOOTER -->
 <?php get_footer(); ?>
 <!-- /FOOTER -->
+
+
