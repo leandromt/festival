@@ -10,6 +10,7 @@
 
 <!-- HEADER -->
 <?php get_header(); ?>
+<?php #get_header('personalizado'); ?>
 <!-- /HEADER -->
 
 <!-- HOME PAGE -->
@@ -22,6 +23,7 @@
 
 <!-- FOOTER -->
 <?php get_footer(); ?>
+<?php #get_footer('personalizado'); ?>
 <!-- /FOOTER -->
 
 
