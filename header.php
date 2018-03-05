@@ -6,6 +6,9 @@
 	<link rel="stylesheet" href="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/css/base-fva.css" media="all"/>
 	<link rel="stylesheet" href="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/css/estilo-fva.css" media="all"/>
 	<link rel="stylesheet" href="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/css/animations.css" media="all"/>
+	<link rel="stylesheet" href="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/css/owl.carousel.min.css" media="all">
+	<link rel="stylesheet" href="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/css/owl.theme.default.min.css" media="all">
+
 	<title>Festival Vida & Arte</title>
 	<!--[if lte IE 9]>
 	<link href='css/animations-ie-fix.css' rel='stylesheet'>
@@ -20,6 +23,15 @@
 	    <div class="float-nav container-fluid" role="menubar">
 	        <figure class="logo-bar"><img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/img/logo_topo.PNG" alt="Vida &amp; Arte"></figure>
 	        <?php wp_nav_menu() ?>
+	        <?php 
+	        	/* Show Menu Pages */
+				/*$pages = get_pages();
+				foreach($pages as $p):
+					$link = get_page_link($p->ID);
+					$title = $p->post_title;
+					printf('<li class="item-menu"><a href="%s">%s</a></li>', $link, $title);
+				endforeach;*/
+	        ?>
 	        <div class="social-btns">
 	            <a href="" target="_blank" role="menuitem"><img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/img/topo_face.PNG" alt="Facebook"></a>
 	            <a href="" target="_blank" role="menuitem"><img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/img/topo_instagram.PNG" alt="Instagram"></a>

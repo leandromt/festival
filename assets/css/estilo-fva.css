@@ -42,7 +42,7 @@ article {
 /*============== BACKGROUNDS ==============*/
 body {
     background-color: #16071F;
-    background-image: url("../img/bg_vida_e_arte.PNG");
+    background-image: url("../imgs/bg_vida_e_arte.PNG");
     background-repeat: repeat-x;
     background-position: 0 757px;
     min-height: 6000px;
@@ -83,6 +83,33 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     font-size: 18px;
     text-align: center;
     font-weight: 100
+}
+.title-tiny-black {
+    font-family: 'SourceSansPro-Black';
+    color: #00003a;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    max-width: 884px
+}
+.title-caderno {
+    line-height: 1.8em;
+    text-align: right
+}
+.title-caderno span:nth-of-type(1) {
+    font-family: 'SourceSansPro-Light';
+    font-size: 55px;
+    display: block;
+    font-weight: 100
+}
+.title-caderno span:nth-of-type(2) {
+    font-family: 'SourceSansPro-Black';
+    font-size: 55px;
+    display: block
+}
+.title-caderno small {
+    font-family: 'SourceSansPro-Regular';
+    font-size: 18px
 }
 /*============== BARRA DE MENU ==============*/
 .nav-wrap {
@@ -144,7 +171,7 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
 /*============== HEADER DA PAGINA ==============*/
 .header-page {
     height: 757px;
-    background-image: url("../img/BG_topo.png");
+    background-image: url("../imgs/BG_topo.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -187,8 +214,8 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     background-position: center;
     top: -10px;
 }
-.countDown:before {background-image: url("../img/contagem_regressiva_esquerda.PNG"); left: -290px}
-.countDown:after {background-image: url("../img/contagem_regressiva_direita.PNG"); right: -290px}
+.countDown:before {background-image: url("../imgs/contagem_regressiva_esquerda.PNG"); left: -290px}
+.countDown:after {background-image: url("../imgs/contagem_regressiva_direita.PNG"); right: -290px}
 
 .countDown span {
     display: inline-block;
@@ -295,9 +322,9 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     height: 100%;
     z-index: -1
 }
-.sobre-imgs figure:nth-of-type(1):after {background-image: url("../img/cor_sobre_um.PNG")}
-.sobre-imgs figure:nth-of-type(2):after {background-image: url("../img/cor_sobre_dois.PNG")}
-.sobre-imgs figure:nth-of-type(3):after {background-image: url("../img/cor_sobre_tres.PNG")}
+.sobre-imgs figure:nth-of-type(1):after {background-color: #580A6B}
+.sobre-imgs figure:nth-of-type(2):after {background-color: #7113EE}
+.sobre-imgs figure:nth-of-type(3):after {background-color: #4002D4}
 /* a classe .look-at-me eh adicionada quando o objeto esta na parte visivel da tela */
 .sobre-imgs.look-at-me figure:nth-of-type(2) {
     -moz-transform: translateY(50px);
@@ -314,7 +341,7 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     transform: translateY(-50px);
 }
 .bg-trailer {
-    background-image: url("../img/arabesco_video.PNG");
+    background-image: url("../imgs/arabesco_video.PNG");
     background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
@@ -356,7 +383,7 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     line-height: 1em
 }
 .attractions {
-    background-image: url("../img/arabesco_atracoes.png");
+    background-image: url("../imgs/arabesco_atracoes.png");
     background-position: top right;
     background-repeat: no-repeat;
     position: relative;
@@ -400,7 +427,7 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     text-overflow: ellipsis;
     white-space: nowrap
 }
-.title-instagram-user {margin-bottom: -50px}
+.title-instagram-user {margin-bottom: -85px}
 .title-instagram-user img {
     width: 38px;
     height: 38px;
@@ -415,18 +442,134 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     font-family: 'SourceSansPro-Black';
 }
 .separator {
-    background-image: url("../img/elemento_musical_rede_social.PNG");
+    background-image: url("../imgs/elemento_musical_rede_social.PNG");
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center;
     height: 192px;
 }
+.instagram-feed a {display: inline-block}
 
-
-
-
-
-
+/* animacao das fotos do instagram */
+.instagram-feed {
+    position: relative;
+    height: 460px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+.instagram-feed a {
+    display: none;
+    background: transparent;
+    position: absolute;
+}
+.instagram-feed a:hover {
+    z-index: 9
+}
+.instagram-feed a div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #fff;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center
+}
+.instagram-feed a div img {
+    width: 100%;
+    height: auto
+}
+.more-social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+}
+.more-social img,
+.more-social span {
+    margin: 0 10px
+}
+.bg-light {
+    background-color: #fff;
+    padding: 100px 15px;
+    overflow: hidden
+}
+.slider-sponsors {
+    max-height: 450px;
+    padding: 100px 30px;
+    position: relative;
+    height: 30px;
+}
+.slider-sponsors figure,.owl-item {
+    width: 190px;
+    height: 100px;
+}
+.slider-sponsors figure img {
+    height: 100%;
+    max-height: 100px;
+    width: auto;
+}
+.newspaper {
+    width: 190px;
+    height: auto;
+    position: relative;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.newspaper.rotate {
+    -moz-transform: rotate(-16deg);
+    -webkit-transform: rotate(-16deg);
+    -o-transform: rotate(-16deg);
+    -ms-transform: rotate(-16deg);
+    transform: rotate(-16deg);
+}
+.newspaper:before,
+.newspaper:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+}
+.newspaper:before {
+    width: 190px;
+    height: 335px;
+    left: 5px;
+    top: 5px;
+    background-color: #580A6B;
+}
+.newspaper:after {
+    background-image: url("../imgs/arabesco_caderno_vida_e_arte_jornal.PNG");
+    width: 146px;
+    height: 238px;
+    right: 0;
+    top: 157px;
+    -moz-transform: rotate(13deg);
+    -webkit-transform: rotate(13deg);
+    -o-transform: rotate(13deg);
+    -ms-transform: rotate(13deg);
+    transform: rotate(13deg);
+    opacity: 0;
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -ms-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
+}
+.newspaper.rotate:after {right: -141px; opacity: 1}
+.newspaper img {
+    width: 100%;
+    height: auto
+}
+.wrap-caderno {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../imgs/arabesco_caderno_vida_e_arte.png");
+    background-repeat: no-repeat;
+    background-position: left center
+}
 
 
 

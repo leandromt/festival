@@ -1,11 +1,12 @@
-<h2>Conteúdo do Site</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem ullam obcaecati, excepturi dolorem nostrum, aliquid quasi laboriosam non voluptate, totam assumenda facere nobis cumque rerum vero! Possimus aliquam, modi fuga aspernatur, aliquid saepe aut id. Aliquam natus consequuntur illum itaque unde. Atque sint debitis dicta molestias, quis voluptates aliquid laborum.</p>
+<?php #bloginfo(); ?>
+<?php #echo get_bloginfo(); ?>
 
 <section class="container-fluid col-1140" role="main">
 
 
 
 
+	<!-- TRAILER -->
 	<article class="row bg-trailer">
 		<?php 
 			
@@ -37,11 +38,14 @@
 
 		?>
     </article>
+    <!-- /TRAILER -->
 
 
 
 
 
+
+	<!-- NOVIDADES -->
 	<article class="row">
 		<h2 class="title-bold">Novidades</h2>
 		<?php 
@@ -67,13 +71,18 @@
 				echo "<p>Nenhum post cadastrado!</p>";
 
 			endif;
+			wp_reset_query();
 
 		?>
 	</article>
+	<!-- /NOVIDADES -->
+
+
+
        
   
            
-
+	<!-- PROGRAMACAO -->
 	<article class="row">
 		<h2 class="title-bold">Programação</h2>
 		<h3 class="title-tiny">Fique por dentro das atrações já confirmadas no FESTIVAL VIDA E ARTE 2018.</h3>
@@ -106,23 +115,26 @@
 				endwhile;
 				echo '</ul>';
 
-
 			else:
 
 				echo "<p>Nenhuma programação cadastrado!</p>";
 
 			endif;
 			wp_reset_query();
+
 		?>
 		</div>
 		<div><a class="btnDefault center" href="" role="button">Mais atrações</a></div>
 	</article>
+	<!-- /PROGRAMACAO -->
 
 
 
 
 
 
+
+	<!-- PATROCINADORES -->
 	<article class="row">
 		<h2 class="title-bold">Patrocinadores</h2>
 		<?php 
@@ -150,6 +162,7 @@
 
 		?>
 	</article>
+	<!-- /PATROCINADORES -->
 
 
 
