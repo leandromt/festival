@@ -188,6 +188,23 @@ class FestivalTheme {
 
             )
         );
+
+
+        register_post_type( 'patrocinadores',
+            array(
+                'supports' => array( 'title', 'editor', 'thumbnail'),
+                'labels' => array(
+                'name' => __( 'Patrocinadores' ),
+                'singular_name' => __( 'Patrocinadores' ),
+            ),
+                'public' => true,
+                'has_archive' => true,
+                'menu_icon'   => 'dashicons-universal-access-alt',
+
+            )
+        );
+
+
     }
 
 
