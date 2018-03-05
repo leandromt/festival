@@ -1,3 +1,13 @@
+<?php
+
+/**
+*
+* Template Home Page
+*
+**/
+
+?>
+
 <?php #bloginfo(); ?>
 <?php #echo get_bloginfo(); ?>
 
@@ -18,7 +28,6 @@
 			if (have_posts()):
 
 				echo "<ul>";
-
 				$i = 0;
 				while (have_posts()): the_post();
 					$i++;
@@ -26,7 +35,6 @@
 						printf('<h3 class="title-tiny">%s</h3><div class="video-wrap"><div class="embed-responsive embed-responsive-16by9 video-box">%s</div></div>', get_the_title(), get_the_content());
 					}
 				endwhile;
-
 				echo "</ul>";
 
 			else:
@@ -54,7 +62,6 @@
 			if (have_posts()):
 
 				echo "<ul>";
-
 				$i = 0;
 				while (have_posts()): the_post();
 					$i++;
@@ -63,7 +70,6 @@
 						printf('<div class="col-lg-4 col-xs-12 item-novidades"><a href="%s"><figure>%s<figcaption>%s</figcaption></figure></a></div>', get_the_permalink(), get_the_title(), get_the_post_thumbnail());
 					}
 				endwhile;
-
 				echo "</ul>";
 
 			else:

@@ -9,8 +9,7 @@
 ?>
 
 <!-- HEADER -->
-<?php get_header(); ?>
-<?php #get_header('personalizado'); ?>
+<?php get_header() #get_header('personalizado') ?>
 <!-- /HEADER -->
 
 <!-- HOME PAGE -->
@@ -18,12 +17,11 @@
 <!-- /HOME PAGE -->
 
 <!-- SIDEBAR -->
-<?php #get_sidebar(); ?>
+<?php #get_sidebar() ?>
 <!-- /SIDEBAR -->
 
 <!-- FOOTER -->
-<?php get_footer(); ?>
-<?php #get_footer('personalizado'); ?>
+<?php get_footer() ?>
 <!-- /FOOTER -->
 
 

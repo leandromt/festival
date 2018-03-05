@@ -1,3 +1,13 @@
+<?php
+
+/**
+*
+* Template Header
+*
+**/
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,12 +35,14 @@
 	        <?php wp_nav_menu() ?>
 	        <?php 
 	        	/* Show Menu Pages */
-				/*$pages = get_pages();
+				/*
+				$pages = get_pages();
 				foreach($pages as $p):
 					$link = get_page_link($p->ID);
 					$title = $p->post_title;
 					printf('<li class="item-menu"><a href="%s">%s</a></li>', $link, $title);
-				endforeach;*/
+				endforeach;
+				*/
 	        ?>
 	        <div class="social-btns">
 	            <a href="" target="_blank" role="menuitem"><img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/img/topo_face.PNG" alt="Facebook"></a>
