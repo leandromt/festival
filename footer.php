@@ -8,7 +8,7 @@
 
 ?>
 
-<footer>Footer 2018</footer>
+	<footer>Footer 2018</footer>
 
 </body>
 <script src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/js/jquery-3.3.1.min.js"></script>
