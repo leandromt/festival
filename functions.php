@@ -174,6 +174,8 @@ class FestivalTheme {
 
     // Create Post Type
     public function create_post_type() {
+
+
         register_post_type( 'programacao',
             array(
                 //'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
@@ -184,7 +186,21 @@ class FestivalTheme {
             ),
                 'public' => true,
                 'has_archive' => true,
-                'menu_icon'   => 'dashicons-exerpt-view',
+                'menu_icon'   => 'dashicons-calendar-alt',
+
+            )
+        );
+
+
+        register_post_type( 'trailer',
+            array(
+                'labels' => array(
+                'name' => __( 'Trailer' ),
+                'singular_name' => __( 'Trailer' ),
+            ),
+                'public' => true,
+                'has_archive' => true,
+                'menu_icon'   => 'dashicons-editor-video',
 
             )
         );
@@ -204,6 +220,19 @@ class FestivalTheme {
             )
         );
 
+
+        register_post_type( 'caderno',
+            array(
+                'supports' => array( 'title', 'editor', 'thumbnail'),
+                'labels' => array(
+                'name' => __( 'Caderno' ),
+                'singular_name' => __( 'Caderno' ),
+            ),
+                'public' => true,
+                'has_archive' => true,
+                'menu_icon'   => 'dashicons-book-alt',
+            )
+        );
 
     }
 

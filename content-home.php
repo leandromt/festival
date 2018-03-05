@@ -4,11 +4,49 @@
 <section class="container-fluid col-1140" role="main">
 
 
+
+
+	<article class="row bg-trailer">
+		<?php 
+			
+			// Get Sigle Post Trailer
+			$args = array('post_type'=>array('posts', 'trailer'));
+			query_posts($args);
+
+			// Get 3 Last Posts 
+			if (have_posts()):
+
+				echo "<ul>";
+
+				$i = 0;
+				while (have_posts()): the_post();
+					$i++;
+					if($i == 1){
+						printf('<h3 class="title-tiny">%s</h3><div class="video-wrap"><div class="embed-responsive embed-responsive-16by9 video-box">%s</div></div>', get_the_title(), get_the_content());
+					}
+				endwhile;
+
+				echo "</ul>";
+
+			else:
+
+				echo "<p>Nenhum trailer cadastrado!</p>";
+
+			endif;
+			wp_reset_query();
+
+		?>
+    </article>
+
+
+
+
+
 	<article class="row">
 		<h2 class="title-bold">Novidades</h2>
 		<?php 
 			
-			// Get 3 Last Posts 
+			// Get 3 Last Posts
 			if (have_posts()):
 
 				echo "<ul>";
@@ -74,6 +112,7 @@
 				echo "<p>Nenhuma programação cadastrado!</p>";
 
 			endif;
+			wp_reset_query();
 		?>
 		</div>
 		<div><a class="btnDefault center" href="" role="button">Mais atrações</a></div>
@@ -107,6 +146,7 @@
 				echo "<p>Nenhum patrocinador cadastrado!</p>";
 
 			endif;
+			wp_reset_query();
 
 		?>
 	</article>
