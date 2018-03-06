@@ -19,6 +19,9 @@
 ?>
 
 
+<?php get_sidebar() ?>
+
+
 
 <!-- FOOTER -->
 <?php get_footer() ?>
