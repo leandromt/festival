@@ -1,4 +1,12 @@
+<?php
 
+/**
+*
+* Template Page Novidades
+*
+**/
+
+?>
 
 <!-- NOVIDADES -->
 <article class="row">

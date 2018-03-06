@@ -51,6 +51,9 @@ class FestivalTheme {
             // Create Post Type
             add_action( 'init', array(&$this, 'create_post_type') );
 
+            // Create Custom Menu Admin
+            add_action( 'admin_menu', array(&$this, 'create_menu_page') );
+
 		}
 
 		/*------------------------------------*\
@@ -215,7 +218,6 @@ class FestivalTheme {
                 'public' => true,
                 'has_archive' => true,
                 'menu_icon'   => 'dashicons-universal-access-alt',
-
             )
         );
 
@@ -235,10 +237,34 @@ class FestivalTheme {
 
     }
 
+    
+
+    //Register a custom menu page
+    public function create_menu_page() {
+
+        add_menu_page(
+            'Data do Evento',
+            'Data do Evento',
+            'manage_options',
+            'myplugin/myplugin-admin.php',
+            '',
+            'dashicons-calendar-alt',
+            30
+        );
+
+    }
+
 
 }
  
 new FestivalTheme();
 
 
+
+
+
+
 ?>
+
+
+
