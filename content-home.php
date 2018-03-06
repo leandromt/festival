@@ -196,32 +196,35 @@
 	<h1 class="sr-only">Caderno</h1>
 	<article class="row">
         <div class="row wrap-caderno" role="complementary">
-            <div class="col-lg-6 col-xs-12">
-                <h2 class="title-caderno">
-                	<?php // Get All Posts Type Patrocinadores
+            
+    	<?php // Get All Posts Type Patrocinadores
 
-						$args = array('post_type'=>array('posts', 'caderno'), 'posts_per_page' => '1');
-						query_posts($args);
+			$args = array('post_type'=>array('posts', 'caderno'), 'posts_per_page' => '1');
+			query_posts($args);
 
-						if (have_posts()):
+			if (have_posts()):
 
-							while (have_posts()): the_post(); ?>
+				while (have_posts()): the_post(); ?>
 
-			                    <span>CADERNO</span>
-			                    <span><?php echo get_the_title() ?></span>
-			                    <small><?php echo get_the_content() ?></small>
+					<div class="col-lg-6 col-xs-12">
+    					<h2 class="title-caderno">
+		                    <span>CADERNO</span>
+		                    <span><?php echo get_the_title() ?></span>
+		                    <small><?php echo get_the_content() ?></small>
+		                </h2>
+		            </div>
 
-			                <?php endwhile ?>
+		            <div class="col-lg-6 col-xs-12">
+		                <figure class="newspaper rotate">
+		                    <?php echo get_the_post_thumbnail(); ?>
+		                </figure>
+		            </div>
 
-	                	<?php endif; wp_reset_query();
-	                ?>
-                </h2>
-            </div>
-            <div class="col-lg-6 col-xs-12">
-                <figure class="newspaper rotate">
-                    <img src="imgs/original_prez-600-_.jpg" alt="">
-                </figure>
-            </div>
+                <?php endwhile ?>
+
+        	<?php endif; wp_reset_query();
+        ?>
+        
         </div>
     </article>
 	<!-- /CARDERNO -->
