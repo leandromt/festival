@@ -129,15 +129,17 @@
 			if (have_posts()): ?>
 
 				<ul class="artists animatedParent" data-sequence="200" data-appear-top-offset="-300">
-				<?php while (have_posts()): the_post(); ?>
-
-					<li class="animated flipInY" data-id="1">
+				<?php $dataId = 0;
+				while (have_posts()): the_post(); ?>
+					
+					<?php $dataId++; ?>
+					<li class="animated flipInY" data-id="<?php echo $dataId; ?>">
 						<figure>
 							<?php echo get_the_post_thumbnail() ?>
 							<figcaption><?php echo get_the_title() ?></figcaption>
 						</figure>
 					</li>
-					
+				
 				<?php endwhile; ?>
 				</ul>
 
@@ -224,7 +226,7 @@
 
         	<?php endif; wp_reset_query();
         ?>
-        
+
         </div>
     </article>
 	<!-- /CARDERNO -->
