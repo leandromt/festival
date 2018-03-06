@@ -52,7 +52,7 @@ class FestivalTheme {
             add_action( 'init', array(&$this, 'create_post_type') );
 
             // Create Custom Menu Admin
-            add_action( 'admin_menu', array(&$this, 'create_menu_page') );
+            add_action( 'admin_menu', array(&$this, 'create_menu_admin') );
 
 		}
 
@@ -237,10 +237,9 @@ class FestivalTheme {
 
     }
 
-    
 
     //Register a custom menu page
-    public function create_menu_page() {
+    public function create_menu_admin() {
 
         add_menu_page(
             'Data do Evento',
@@ -258,9 +257,6 @@ class FestivalTheme {
 }
  
 new FestivalTheme();
-
-
-
 
 
 
