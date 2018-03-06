@@ -37,3 +37,8 @@
 
 	?>
 </ul>
+
+
+<!-- SEARCH -->
+<?php get_search_form() ?>
+<!-- /SEARCH -->

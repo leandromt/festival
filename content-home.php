@@ -132,8 +132,8 @@
 				<?php $dataId = 0;
 				while (have_posts()): the_post(); ?>
 					
-					<?php $dataId++; ?>
-					<li class="animated flipInY" data-id="<?php echo $dataId; ?>">
+					<?php $dataId++ ?>
+					<li class="animated flipInY" data-id="<?php echo $dataId ?>">
 						<figure>
 							<?php echo get_the_post_thumbnail() ?>
 							<figcaption><?php echo get_the_title() ?></figcaption>
@@ -151,7 +151,7 @@
 			wp_reset_query(); 
 		?>
 		</div>
-		<div><a class="btnDefault center" href="" role="button">Mais atrações</a></div>
+		<div><a class="btnDefault center" href="<?php get_site_url() ?>" role="button">Mais atrações</a></div>
 	</article>
 	<!-- /PROGRAMACAO -->
 
@@ -172,11 +172,11 @@
 
 			if (have_posts()): ?>
 
-			<ul>
-			<?php while (have_posts()): the_post(); ?>
-				<li><?php echo get_the_post_thumbnail(); ?></div>
-			<?php endwhile; ?>
-			</ul>";
+				<ul>
+				<?php while (have_posts()): the_post(); ?>
+					<li><?php echo get_the_post_thumbnail(); ?></div>
+				<?php endwhile; ?>
+				</ul>
 
 			<?php else: ?>
 
@@ -184,7 +184,7 @@
 
 			<?php endif; 
 			wp_reset_query(); 
-
+			
 		?>
 	</article>
 	<!-- /PATROCINADORES -->

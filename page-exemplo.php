@@ -23,8 +23,9 @@
 ?>
 
 
-
-
+<!-- SIDEBAR -->
+<?php get_sidebar() ?>
+<!-- /SIDEBAR -->
 
 
 <!-- FOOTER -->
