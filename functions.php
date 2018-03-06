@@ -179,7 +179,7 @@ class FestivalTheme {
         register_post_type( 'programacao',
             array(
                 //'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
-                'supports' => array( 'title', 'editor', 'thumbnail'),
+                'supports' => array( 'title', 'thumbnail'),
                 'labels' => array(
                 'name' => __( 'Programação' ),
                 'singular_name' => __( 'Programação' ),
@@ -187,7 +187,6 @@ class FestivalTheme {
                 'public' => true,
                 'has_archive' => true,
                 'menu_icon'   => 'dashicons-calendar-alt',
-
             )
         );
 
@@ -208,7 +207,7 @@ class FestivalTheme {
 
         register_post_type( 'patrocinadores',
             array(
-                'supports' => array( 'title', 'editor', 'thumbnail'),
+                'supports' => array( 'title', 'thumbnail'),
                 'labels' => array(
                 'name' => __( 'Patrocinadores' ),
                 'singular_name' => __( 'Patrocinadores' ),

@@ -5,11 +5,9 @@
 * Template Geral Pages
 *
 **/
-
 ?>
 
 <h1><?php single_post_title() ?></h1>
-
 
 
 <?php
@@ -19,9 +17,6 @@
 
 	endif;	
 ?>
-
-
-
 
 
 

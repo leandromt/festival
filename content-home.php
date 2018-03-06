@@ -18,35 +18,33 @@
 
 	<!-- TRAILER -->
 	<article class="row bg-trailer">
-		<?php 
 
-			// Get Sigle Post Trailer
-			$args = array('post_type'=>array('posts', 'trailer'));
+		<?php // Get Sigle Post Trailer
+			
+			$args = array('post_type'=>array('posts', 'trailer'), 'posts_per_page' => '1');
 			query_posts($args);
 
-			// Get 3 Last Posts 
-			if (have_posts()):
+			if (have_posts()): 
+		
+				while (have_posts()): the_post(); ?>
+					
+					<h3 class="title-tiny"><?php echo get_the_title(); ?></h3>
+					<div class="video-wrap">
+						<div class="embed-responsive embed-responsive-16by9 video-box"><?php echo get_the_content() ?></div>
+					</div>
 
-				echo "<ul>";
-				$i = 0;
-				while (have_posts()): the_post();
+				<?php endwhile;
 
-					$i++;
-					if($i == 1):
-						printf('<h3 class="title-tiny">%s</h3><div class="video-wrap"><div class="embed-responsive embed-responsive-16by9 video-box">%s</div></div>', get_the_title(), get_the_content());
-					endif;
+			else: ?>
 
-				endwhile;
-				echo "</ul>";
+				<p>Nenhum trailer cadastrado!</p>
 
-			else:
+			<?php endif; 
 
-				echo "<p>Nenhum trailer cadastrado!</p>";
-
-			endif;
-			wp_reset_query();
+			wp_reset_query(); 
 
 		?>
+
     </article>
     <!-- /TRAILER -->
 
@@ -58,33 +56,32 @@
 	<!-- NOVIDADES -->
 	<article class="row">
 		<h2 class="title-bold">Novidades</h2>
-		<?php 
+
+		<?php // Get 3 Last Posts
+
+			$args = array('posts_per_page' => '3');
+			query_posts($args); 
 			
-			// Get 3 Last Posts
-			if (have_posts()):
+			if (have_posts()): 
 
-				echo "<ul>";
-				$i = 0;
+				while (have_posts()): the_post(); ?>
+		
+					<div class="col-lg-4 col-xs-12 item-novidades">
+						<a href="<?php echo get_the_permalink() ?>">
+							<figure><?php echo get_the_post_thumbnail() ?>
+								<figcaption><?php echo get_the_title() ?></figcaption>
+							</figure>
+						</a>
+					</div>
+		
+				<?php endwhile;
 
-				while (have_posts()): the_post();
+			else: ?>
 
-					$i++;
-					if($i <= 3):
-						#printf('<li>Post: %s, title: %s, content: %s</li>', $post->ID, $post->post_title, $post->post_content);
-						printf('<div class="col-lg-4 col-xs-12 item-novidades"><a href="%s"><figure>%s<figcaption>%s</figcaption></figure></a></div>', get_the_permalink(), get_the_title(), get_the_post_thumbnail());
-					endif;
+			<p>Nenhum post cadastrado!</p>
 
-				endwhile;
-				echo "</ul>";
+		<?php endif; wp_reset_query(); ?>
 
-			else:
-
-				echo "<p>Nenhum post cadastrado!</p>";
-
-			endif;
-			wp_reset_query();
-
-		?>
 	</article>
 	<!-- /NOVIDADES -->
 
@@ -99,46 +96,57 @@
 		<h3 class="title-tiny">Fique por dentro das atrações já confirmadas no FESTIVAL VIDA E ARTE 2018.</h3>
 		<div class="attractions" role="contentinfo">
 		<?php 
-			
-			// Get all posts type programacao
-			$args = array('post_type'=>array('posts', 'programacao'));
+
+
+			// Get first posts type programacao
+			$args = array('post_type'=>array('posts', 'programacao'), 'posts_per_page' => '1');
 			query_posts($args);
 
 			if (have_posts()):
 
-				// Get First Post
-				$i = 0;
+				while (have_posts()): the_post(); ?>
 
-				while (have_posts()): the_post();
+					<figure class="main-attraction" data-name="<?php echo get_the_title() ?>">
+						<?php echo get_the_post_thumbnail() ?>
+					</figure>
 
-					$i++;
-					if($i == 1):
-						printf('<figure class="main-attraction" data-name="%s">%s</figure>', get_the_title(), get_the_post_thumbnail());
-					endif;
+				<?php endwhile;
 
-				endwhile;
+			else: ?>
 
-				// Get List Posts
-				echo '<ul class="artists animatedParent" data-sequence="200" data-appear-top-offset="-300">';
-				$i = 0;
+				<p>Nenhuma programação cadastrado!</p>
 
-				while (have_posts()): the_post();
-
-					$i++;
-					if($i > 1):
-						printf('<li class="animated flipInY" data-id="1"><figure>%s<figcaption>%s</figcaption></figure></li>', get_the_post_thumbnail(), get_the_title());
-					endif;
-					
-				endwhile;
-				echo '</ul>';
-
-			else:
-
-				echo "<p>Nenhuma programação cadastrado!</p>";
-
-			endif;
+			<?php endif; 
 			wp_reset_query();
 
+
+
+
+			// Get other posts type programacao
+			$args = array('post_type'=>array('posts', 'programacao'), 'offset' => '1');
+			query_posts($args); 
+
+			if (have_posts()): ?>
+
+				<ul class="artists animatedParent" data-sequence="200" data-appear-top-offset="-300">
+				<?php while (have_posts()): the_post(); ?>
+
+					<li class="animated flipInY" data-id="1">
+						<figure>
+							<?php echo get_the_post_thumbnail() ?>
+							<figcaption><?php echo get_the_title() ?></figcaption>
+						</figure>
+					</li>
+					
+				<?php endwhile; ?>
+				</ul>
+
+			<?php else: ?>
+
+				<p>Nenhuma programação cadastrado!</p>
+
+			<?php endif; 
+			wp_reset_query(); 
 		?>
 		</div>
 		<div><a class="btnDefault center" href="" role="button">Mais atrações</a></div>
@@ -154,32 +162,69 @@
 	<!-- PATROCINADORES -->
 	<article class="row">
 		<h2 class="title-bold">Patrocinadores</h2>
-		<?php 
-			
-			// Get All Posts Type Patrocinadores
+		
+		<?php // Get All Posts Type Patrocinadores
+
 			$args = array('post_type'=>array('posts', 'patrocinadores'));
 			query_posts($args);
 
-			if (have_posts()):
+			if (have_posts()): ?>
 
-				echo "<ul>";
-				while (have_posts()): the_post();
+			<ul>
+			<?php while (have_posts()): the_post(); ?>
+				<li><?php echo get_the_post_thumbnail(); ?></div>
+			<?php endwhile; ?>
+			</ul>";
 
-					printf('<li>%s</div>', get_the_post_thumbnail());
+			<?php else: ?>
 
-				endwhile;
-				echo "</ul>";
+				<p>Nenhum patrocinador cadastrado!</p>
 
-			else:
-
-				echo "<p>Nenhum patrocinador cadastrado!</p>";
-
-			endif;
-			wp_reset_query();
+			<?php endif; 
+			wp_reset_query(); 
 
 		?>
 	</article>
 	<!-- /PATROCINADORES -->
+
+
+
+
+
+
+	<!-- CARDERNO -->
+	<h1 class="sr-only">Caderno</h1>
+	<article class="row">
+        <div class="row wrap-caderno" role="complementary">
+            <div class="col-lg-6 col-xs-12">
+                <h2 class="title-caderno">
+                	<?php // Get All Posts Type Patrocinadores
+
+						$args = array('post_type'=>array('posts', 'caderno'), 'posts_per_page' => '1');
+						query_posts($args);
+
+						if (have_posts()):
+
+							while (have_posts()): the_post(); ?>
+
+			                    <span>CADERNO</span>
+			                    <span><?php echo get_the_title() ?></span>
+			                    <small><?php echo get_the_content() ?></small>
+
+			                <?php endwhile ?>
+
+	                	<?php endif; wp_reset_query();
+	                ?>
+                </h2>
+            </div>
+            <div class="col-lg-6 col-xs-12">
+                <figure class="newspaper rotate">
+                    <img src="imgs/original_prez-600-_.jpg" alt="">
+                </figure>
+            </div>
+        </div>
+    </article>
+	<!-- /CARDERNO -->
 
 
 
