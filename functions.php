@@ -181,14 +181,20 @@ class FestivalTheme {
         register_post_type( 'programacao',
             array(
                 'labels' => array(
-                    'name'                  => __( 'Programação' ),
-                    'singular_name'         => __( 'Programação' )
+                    'name'                  => __( 'Atrações'),
+                    'singular_name'         => __( 'Atração'),
+                    'featured_image'        => __( 'Foto da Atração'),
+                    'add_new_item'          => __( 'Adicionar Nova Atração'),
+                    'add_new'               => __( 'Nova Atração'),
+                    'edit_item'             => __( 'Editar Atração'),
+                    'set_featured_image'    => __( 'Adicionar foto'),
+                    'remove_featured_image' => __( 'Remover foto') 
                 ),
                 //'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
                 'supports'                  => array( 'title', 'thumbnail'),
                 'public'                    => true,
                 'has_archive'               => true,
-                'menu_icon'                 => 'dashicons-calendar-alt',
+                'menu_icon'                 => 'dashicons-universal-access',
             )
         );
 
@@ -197,7 +203,9 @@ class FestivalTheme {
             array(
                 'labels' => array(
                     'name'                  => __( 'Trailer' ),
-                    'singular_name'         => __( 'Trailer' )
+                    'add_new_item'          => __( 'Adicionar Novo Trailer'),
+                    'add_new'               => __( 'Novo Trailer'),
+                    'edit_item'             => __( 'Editar Trailer')
                 ),
                 'public'                    => true,
                 'has_archive'               => true,
@@ -211,7 +219,9 @@ class FestivalTheme {
             array(
                 'labels' => array(
                     'name'                  => __( 'Patrocinadores' ),
-                    'singular_name'         => __( 'Patrocinadores' ),
+                    'singular_name'         => __( 'Patrocinadore' ),
+                    'add_new_item'          => __( 'Adicionar Novo Patrocinador'),
+                    'edit_item'             => __( 'Editar Patrocinador'),
                     'featured_image'        => __( 'Logo do patrocinador'),
                     'set_featured_image'    => __( 'Adicionar logo'),
                     'remove_featured_image' => __( 'Remover logo')
@@ -219,7 +229,7 @@ class FestivalTheme {
                 'supports'                  => array( 'title', 'thumbnail'),
                 'public'                    => true,
                 'has_archive'               => true,
-                'menu_icon'                 => 'dashicons-universal-access-alt',
+                'menu_icon'                 => 'dashicons-money',
             )
         );
 
@@ -228,7 +238,9 @@ class FestivalTheme {
             array(
                 'labels' => array(
                     'name'                  => __( 'Caderno' ),
-                    'singular_name'         => __( 'Caderno' ),
+                    'add_new_item'          => __( 'Adicionar Novo Caderno'),
+                    'edit_item'             => __( 'Editar Caderno'),
+                    'featured_image'        => __( 'Logo do patrocinador'),
                     'featured_image'        => __( 'Capa do Caderno Vida & Arte'),
                     'set_featured_image'    => __( 'Adicionar capa do caderno'),
                     'remove_featured_image' => __( 'Remover capa do caderno')
