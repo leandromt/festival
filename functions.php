@@ -82,8 +82,8 @@ class FestivalTheme {
         //add_action('wp_print_scripts', array(&$this, 'festivaltheme_conditional_scripts')); // Add Conditional Page Scripts
         add_action('wp_enqueue_scripts', array(&$this, 'festivaltheme_styles')); // Add Theme Stylesheet
         add_action('login_enqueue_scripts', array(&$this, 'festivaltheme_login_style'), 10);
-        add_action('init', array(&$this, 'create_post_type')); // Create Post Type
-        add_action('admin_menu', array(&$this, 'create_menu_admin')); // Create Custom Menu Admin
+        add_action('init', array(&$this, 'festivaltheme_create_post_type')); // Create Post Type
+        add_action('admin_menu', array(&$this, 'festivaltheme_create_menu_admin')); // Create Custom Menu Admin
         add_action('admin_menu', array(&$this, 'festivaltheme_admin_remove_menu')); // Remove menus default admin
 
       
@@ -180,12 +180,13 @@ class FestivalTheme {
     public function festivaltheme_admin_remove_menu () 
     { 
        remove_menu_page('edit.php'); // Posts
-       remove_menu_page( 'edit.php?post_type=page' ); //Pages
+       remove_menu_page( 'edit.php?post_type=page' ); // Pages
+       remove_menu_page( 'edit-comments.php' );  // Comments
     } 
 
 
     // Create Post Type
-    public function create_post_type() {
+    public function festivaltheme_create_post_type() {
 
 
         register_post_type( 'novidades',
@@ -288,7 +289,7 @@ class FestivalTheme {
 
 
     //Register a custom menu page
-    public function create_menu_admin() {
+    public function festivaltheme_create_menu_admin() {
 
         add_menu_page(
             'Data do Evento',

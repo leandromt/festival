@@ -7,6 +7,5 @@
 **/
 
 echo 'aee';
-exit('a');
 
 ?>
