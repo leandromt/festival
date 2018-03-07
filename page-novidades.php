@@ -8,6 +8,7 @@
 
 ?>
 
+
 <!-- NOVIDADES -->
 <article class="row">
 	<h2 class="title-bold">Novidades</h2>

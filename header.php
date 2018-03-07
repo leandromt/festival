@@ -13,17 +13,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/css/base-fva.css" media="all"/>
-	<link rel="stylesheet" href="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/css/estilo-fva.css" media="all"/>
-	<link rel="stylesheet" href="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/css/animations.css" media="all"/>
-	<link rel="stylesheet" href="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/css/owl.carousel.min.css" media="all">
-	<link rel="stylesheet" href="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/css/owl.theme.default.min.css" media="all">
-
 	<title>Festival Vida & Arte</title>
 	<!--[if lte IE 9]>
 	<link href='css/animations-ie-fix.css' rel='stylesheet'>
 	<![endif]-->
-	<?php #wp_head() ?>
+	<?php wp_head() ?>
 </head>
 
 <body <?php echo body_class() ?>>

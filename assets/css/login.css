@@ -1,0 +1,30 @@
+body.login {
+	background-image: url('../img/login-bg.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+#login {
+    padding: 6% 0 0;
+}
+
+.login form {
+    background: rgba(255, 255, 255, .8);
+}
+
+.login h1 a {
+    background-image: none,url('../img/OPOVO_online.svg');
+    -webkit-background-size: 300px;
+    background-size: 300px;
+    width: 300px; 
+    height: 54px;
+}
+
+p#backtoblog {
+	display: none;
+}
+
+.login #nav a, .login #nav a:hover {
+    color: #fff;
+}

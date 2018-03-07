@@ -25,6 +25,8 @@ class FestivalTheme {
      */
     public function __construct() {
 
+
+
 		/*------------------------------------*\
 			Theme Support
 		\*------------------------------------*/
@@ -48,11 +50,6 @@ class FestivalTheme {
 		    // Localisation Support
 		    load_theme_textdomain('festivaltheme', get_template_directory() . '/languages');
 
-            // Create Post Type
-            add_action( 'init', array(&$this, 'create_post_type') );
-
-            // Create Custom Menu Admin
-            add_action( 'admin_menu', array(&$this, 'create_menu_admin') );
 
 		}
 
@@ -81,12 +78,13 @@ class FestivalTheme {
 		\*------------------------------------*/
 
 		// Add Actions
-		add_action('init', array(&$this, 'festivaltheme_header_scripts')); // Add Custom Scripts to wp_head
-
-        add_action('wp_print_scripts', array(&$this, 'festivaltheme_conditional_scripts')); // Add Conditional Page Scripts
+		//add_action('init', array(&$this, 'festivaltheme_header_scripts')); // Add Custom Scripts to wp_head
+        //add_action('wp_print_scripts', array(&$this, 'festivaltheme_conditional_scripts')); // Add Conditional Page Scripts
         add_action('wp_enqueue_scripts', array(&$this, 'festivaltheme_styles')); // Add Theme Stylesheet
-
         add_action('login_enqueue_scripts', array(&$this, 'festivaltheme_login_style'), 10);
+        add_action( 'init', array(&$this, 'create_post_type') ); // Create Post Type
+        add_action( 'admin_menu', array(&$this, 'create_menu_admin') ); // Create Custom Menu Admin
+
       
 		// // Remove wp emoji
 		remove_action('wp_head', 'print_emoji_detection_script', 7);
@@ -123,54 +121,55 @@ class FestivalTheme {
 	}
 
 	// Load festivaltheme scripts (header.php)
-	public function festivaltheme_header_scripts() {
+	/*public function festivaltheme_header_scripts() {
 
 	    if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-	        wp_register_script('festivaltheme-scripts', TEMPLATE_DIRETORY_URI . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
-	        wp_enqueue_script('festivaltheme-scripts'); // Enqueue it!
-               
+            wp_register_script('festivaltheme-scripts', TEMPLATE_DIRETORY_URI . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+            wp_enqueue_script('festivaltheme-scripts'); // Enqueue it!
+
             wp_register_script('festivaltheme-gpt', '//www.googletagservices.com/tag/js/gpt.js'); // Custom scripts
             wp_enqueue_script('festivaltheme-gpt'); // Enqueue it!
 
 	    }
 
-	}
+	}*/
 
 	// Load festivaltheme conditional scripts
-	public function festivaltheme_conditional_scripts() {
+	/*public function festivaltheme_conditional_scripts() {
 
 	    if (is_page('pagenamehere')) {
 	        wp_register_script('scriptname', TEMPLATE_DIRETORY_URI . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
 	        wp_enqueue_script('scriptname'); // Enqueue it!
 	    }
 
-	}
+	}*/
 
+    // Load css login page
     public function festivaltheme_login_style() {
 
-        wp_enqueue_style('festivaltheme-login', TEMPLATE_DIRETORY_URI . '/css/login.css', false); // Enqueue it!  
+        wp_enqueue_style('festivaltheme-login', TEMPLATE_DIRETORY_URI . '/assets/css/login.css', false); // Enqueue it!  
 
     }
 
-	// Load festivaltheme styles
+	// Load festivaltheme styles and scripts
 	public function festivaltheme_styles() {
 
-        wp_register_style('1140', TEMPLATE_DIRETORY_URI . '/css/1140.css', array(), '1.0', 'all');
-        wp_enqueue_style('1140'); // Enqueue it!    
+        // CSS
+        wp_enqueue_style('base', TEMPLATE_DIRETORY_URI .'/assets/css/base-fva.css');
+        wp_enqueue_style('estilo', TEMPLATE_DIRETORY_URI .'/assets/css/estilo-fva.css');
+        wp_enqueue_style('animations', TEMPLATE_DIRETORY_URI .'/assets/css/animations.css');
+        wp_enqueue_style('carousel', TEMPLATE_DIRETORY_URI .'/assets/css/owl.carousel.min.css');
+        wp_enqueue_style('theme', TEMPLATE_DIRETORY_URI .'/assets/css/owl.theme.default.min.css');
 
-        wp_register_style('normalize', TEMPLATE_DIRETORY_URI . '/css/normalize.min.css', array('1140'), '7.0.0', 'all');
-        wp_enqueue_style('normalize'); // Enqueue it!
+        // JS
+        wp_deregister_script('jquery');
+        wp_enqueue_script('jquery', TEMPLATE_DIRETORY_URI . '/assets/js/jquery-3.3.1.min.js', null, null, true);
+        wp_enqueue_script('carousel', TEMPLATE_DIRETORY_URI . '/assets/js/owl.carousel.min.js', ['jquery'], null, true);
+        wp_enqueue_script('scripts', TEMPLATE_DIRETORY_URI . '/assets/js/scripts.js', ['jquery'], null, true);
+        wp_enqueue_script('animate', TEMPLATE_DIRETORY_URI . '/assets/js/css3-animate-it.js', ['jquery'], null, true);
 
-        wp_register_style('festivaltheme', TEMPLATE_DIRETORY_URI . '/style.css', array('normalize'), '1.0', 'all');
-        wp_enqueue_style('festivaltheme'); // Enqueue it!        
-
-        if (wp_is_mobile()) {
-
-            wp_register_style('festivaltheme-mobile', TEMPLATE_DIRETORY_URI . '/style-mobile.css', array('festivaltheme'), '1.0', 'all');
-            wp_enqueue_style('festivaltheme-mobile'); // Enqueue it!
-
-        }
+        // if (wp_is_mobile()) { }
 
 	}
 
@@ -250,6 +249,8 @@ class FestivalTheme {
             'dashicons-calendar-alt',
             30
         );
+
+
 
     }
 
