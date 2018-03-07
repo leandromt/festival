@@ -59,7 +59,7 @@
 
 		<?php // Get 3 Last Posts
 
-			$args = array('posts_per_page' => '3');
+			$args = array('post_type'=>array('posts', 'novidades'), 'posts_per_page' => '3');
 			query_posts($args); 
 			
 			if (have_posts()): 

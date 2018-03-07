@@ -82,8 +82,9 @@ class FestivalTheme {
         //add_action('wp_print_scripts', array(&$this, 'festivaltheme_conditional_scripts')); // Add Conditional Page Scripts
         add_action('wp_enqueue_scripts', array(&$this, 'festivaltheme_styles')); // Add Theme Stylesheet
         add_action('login_enqueue_scripts', array(&$this, 'festivaltheme_login_style'), 10);
-        add_action( 'init', array(&$this, 'create_post_type') ); // Create Post Type
-        add_action( 'admin_menu', array(&$this, 'create_menu_admin') ); // Create Custom Menu Admin
+        add_action('init', array(&$this, 'create_post_type')); // Create Post Type
+        add_action('admin_menu', array(&$this, 'create_menu_admin')); // Create Custom Menu Admin
+        add_action('admin_menu', array(&$this, 'festivaltheme_admin_remove_menu')); // Remove menus default admin
 
       
 		// // Remove wp emoji
@@ -91,6 +92,7 @@ class FestivalTheme {
 		remove_action('wp_print_styles', 'print_emoji_styles');
 		remove_action('admin_print_scripts', 'print_emoji_detection_script');
 		remove_action('admin_print_styles', 'print_emoji_styles');
+
 
     }
  
@@ -174,8 +176,34 @@ class FestivalTheme {
 	}
 
 
+    // Remove Itens Default Admin
+    public function festivaltheme_admin_remove_menu () 
+    { 
+       remove_menu_page('edit.php'); // Posts
+       remove_menu_page( 'edit.php?post_type=page' ); //Pages
+    } 
+
+
     // Create Post Type
     public function create_post_type() {
+
+
+        register_post_type( 'novidades',
+            array(
+                'labels' => array(
+                    'name'                  => __( 'Novidades'),
+                    'singular_name'         => __( 'Novidaed'),
+                    'add_new_item'          => __( 'Adicionar nova Novidade'),
+                    'edit_item'             => __( 'Editar Novidade'),
+                    'search_items'          => __( 'Pesquisar Novidades'),
+                ),
+                'supports'                  => array( 'title', 'thumbnail', 'editor'),
+                'public'                    => true,
+                'has_archive'               => true,
+                'menu_icon'                 => 'dashicons-admin-post',
+                'menu_position'             => 6
+            )
+        );
 
 
         register_post_type( 'programacao',
@@ -195,6 +223,7 @@ class FestivalTheme {
                 'public'                    => true,
                 'has_archive'               => true,
                 'menu_icon'                 => 'dashicons-universal-access',
+                'menu_position'             => 8
             )
         );
 
@@ -210,6 +239,7 @@ class FestivalTheme {
                 'public'                    => true,
                 'has_archive'               => true,
                 'menu_icon'                 => 'dashicons-editor-video',
+                'menu_position'             => 10
 
             )
         );
@@ -230,6 +260,7 @@ class FestivalTheme {
                 'public'                    => true,
                 'has_archive'               => true,
                 'menu_icon'                 => 'dashicons-money',
+                'menu_position'             => 11
             )
         );
 
@@ -249,6 +280,7 @@ class FestivalTheme {
                 'public'                    => true,
                 'has_archive'               => true,
                 'menu_icon'                 => 'dashicons-book-alt',
+                'menu_position'             => 12
             )
         );
 
@@ -277,9 +309,8 @@ class FestivalTheme {
  
 new FestivalTheme();
 
-
-
 ?>
+
 
 
 
