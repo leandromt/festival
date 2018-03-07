@@ -180,15 +180,15 @@ class FestivalTheme {
 
         register_post_type( 'programacao',
             array(
-                //'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
-                'supports' => array( 'title', 'thumbnail'),
                 'labels' => array(
-                'name' => __( 'Programação' ),
-                'singular_name' => __( 'Programação' ),
-            ),
-                'public' => true,
-                'has_archive' => true,
-                'menu_icon'   => 'dashicons-calendar-alt',
+                    'name'                  => __( 'Programação' ),
+                    'singular_name'         => __( 'Programação' )
+                ),
+                //'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+                'supports'                  => array( 'title', 'thumbnail'),
+                'public'                    => true,
+                'has_archive'               => true,
+                'menu_icon'                 => 'dashicons-calendar-alt',
             )
         );
 
@@ -196,12 +196,12 @@ class FestivalTheme {
         register_post_type( 'trailer',
             array(
                 'labels' => array(
-                'name' => __( 'Trailer' ),
-                'singular_name' => __( 'Trailer' ),
-            ),
-                'public' => true,
-                'has_archive' => true,
-                'menu_icon'   => 'dashicons-editor-video',
+                    'name'                  => __( 'Trailer' ),
+                    'singular_name'         => __( 'Trailer' )
+                ),
+                'public'                    => true,
+                'has_archive'               => true,
+                'menu_icon'                 => 'dashicons-editor-video',
 
             )
         );
@@ -209,28 +209,34 @@ class FestivalTheme {
 
         register_post_type( 'patrocinadores',
             array(
-                'supports' => array( 'title', 'thumbnail'),
                 'labels' => array(
-                'name' => __( 'Patrocinadores' ),
-                'singular_name' => __( 'Patrocinadores' ),
-            ),
-                'public' => true,
-                'has_archive' => true,
-                'menu_icon'   => 'dashicons-universal-access-alt',
+                    'name'                  => __( 'Patrocinadores' ),
+                    'singular_name'         => __( 'Patrocinadores' ),
+                    'featured_image'        => __( 'Logo do patrocinador'),
+                    'set_featured_image'    => __( 'Adicionar logo'),
+                    'remove_featured_image' => __( 'Remover logo')
+                ),
+                'supports'                  => array( 'title', 'thumbnail'),
+                'public'                    => true,
+                'has_archive'               => true,
+                'menu_icon'                 => 'dashicons-universal-access-alt',
             )
         );
 
 
         register_post_type( 'caderno',
             array(
-                'supports' => array( 'title', 'editor', 'thumbnail'),
                 'labels' => array(
-                'name' => __( 'Caderno' ),
-                'singular_name' => __( 'Caderno' ),
-            ),
-                'public' => true,
-                'has_archive' => true,
-                'menu_icon'   => 'dashicons-book-alt',
+                    'name'                  => __( 'Caderno' ),
+                    'singular_name'         => __( 'Caderno' ),
+                    'featured_image'        => __( 'Capa do Caderno Vida & Arte'),
+                    'set_featured_image'    => __( 'Adicionar capa do caderno'),
+                    'remove_featured_image' => __( 'Remover capa do caderno')
+                ),
+                'supports'                  => array( 'title', 'editor', 'thumbnail'),
+                'public'                    => true,
+                'has_archive'               => true,
+                'menu_icon'                 => 'dashicons-book-alt',
             )
         );
 
