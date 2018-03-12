@@ -43,6 +43,7 @@ class FestivalTheme {
             add_image_size('large', 740, '', true); // Large Thumbnail
             add_image_size('medium', 300, '', true); // Medium Thumbnail
             add_image_size('small', 120, '', true); // Small Thumbnail
+            add_image_size('novidades', 350, 414, true); // Novidades Home
 
 		    // Enables post and comment RSS feed links to head
 		    add_theme_support('automatic-feed-links');
@@ -83,7 +84,6 @@ class FestivalTheme {
         add_action('wp_enqueue_scripts', array(&$this, 'festivaltheme_styles')); // Add Theme Stylesheet
         add_action('login_enqueue_scripts', array(&$this, 'festivaltheme_login_style'), 10);
         add_action('init', array(&$this, 'festivaltheme_create_post_type')); // Create Post Type
-        add_action('admin_menu', array(&$this, 'festivaltheme_create_menu_admin')); // Create Custom Menu Admin
         add_action('admin_menu', array(&$this, 'festivaltheme_admin_remove_menu')); // Remove menus default admin
 
       
@@ -285,26 +285,23 @@ class FestivalTheme {
             )
         );
 
-    }
 
-
-    //Register a custom menu page
-    public function festivaltheme_create_menu_admin() {
-
-        add_menu_page(
-            'Data do Evento',
-            'Data do Evento',
-            'manage_options',
-            'myplugin/myplugin-admin.php',
-            '',
-            'dashicons-calendar-alt',
-            30
+        register_post_type( 'datadoevento',
+            array(
+                'labels' => array(
+                    'name'                  => __( 'Data do Evento' ),
+                    'add_new_item'          => __( 'Adicionar Data do Evento'),
+                    'edit_item'             => __( 'Editar Data do Evento'),
+                ),
+                'supports'                  => array('title'),
+                'public'                    => true,
+                'has_archive'               => true,
+                'menu_icon'                 => 'dashicons-calendar-alt',
+                'menu_position'             => 12
+            )
         );
 
-
-
     }
-
 
 }
  

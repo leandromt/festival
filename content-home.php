@@ -68,7 +68,7 @@
 		
 					<div class="col-lg-4 col-xs-12 item-novidades">
 						<a href="<?php echo get_the_permalink() ?>">
-							<figure><?php echo get_the_post_thumbnail() ?>
+							<figure><?php echo get_the_post_thumbnail(get_the_ID(), 'novidades') ?>
 								<figcaption><?php echo get_the_title() ?></figcaption>
 							</figure>
 						</a>
