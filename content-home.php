@@ -164,7 +164,7 @@
 			                <?php echo get_the_post_thumbnail() ?>
 			                <figcaption><?php echo get_the_title() ?></figcaption>
 			            </figure>
-			            
+
 			        <?php endwhile; ?>
 
 				</div>
@@ -258,7 +258,7 @@
 	        		<?php while (have_posts()): the_post(); ?>
 		        		<div class="owl-item">
 		        			<figure>
-		        				<?php echo get_the_post_thumbnail(); ?>
+		        				<?php echo get_the_post_thumbnail(get_the_ID(), 'patrocinadores'); ?>
 		        			</figure>
 		        		</div>
 	        		<?php endwhile; ?>

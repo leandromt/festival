@@ -1,7 +1,7 @@
 // CONTAGEM REGRESSIVA
 // Defina a data em que a contagem termina. Formato para usar [Nov 21, 2019 13:27:47]
 var countDownDate = new Date("Mar 26, 2018 12:00:00").getTime();
-var endDate = new Date("Mar 5, 2018 18:00:00").getTime();
+//var endDate = new Date("Mar 5, 2018 18:00:00").getTime();
 
 // atualiza a contagem a cada segundo
 var x = setInterval(function() {

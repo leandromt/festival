@@ -44,6 +44,7 @@ class FestivalTheme {
             add_image_size('medium', 300, '', true); // Medium Thumbnail
             add_image_size('small', 120, '', true); // Small Thumbnail
             add_image_size('novidades', 350, 414, true); // Novidades Home
+            add_image_size('patrocinadores', 190, false); // Patrocinadores Home
 
 		    // Enables post and comment RSS feed links to head
 		    add_theme_support('automatic-feed-links');
