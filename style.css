@@ -18,5 +18,5 @@ body.admin-bar {
 
 #wpadminbar {
 	top: auto !important;
-	bottom: 0;
+	bottom: -500px !important;
 }

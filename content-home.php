@@ -157,19 +157,16 @@
 			if (have_posts()): ?>
 
 				<div class="owl-carousel artists">
-				    <div class="owl-stage-outer">
-				        <div class="owl-stage">
-							
-							<?php while (have_posts()): the_post(); ?>
-								<figure>
-					                <?php echo get_the_post_thumbnail() ?>
-					                <figcaption><?php echo get_the_title() ?></figcaption>
-					            </figure>
-				
-							<?php endwhile; ?>
-						
-						</div>
-					</div>
+					
+					<?php while (have_posts()): the_post(); ?>
+
+						<figure>
+			                <?php echo get_the_post_thumbnail() ?>
+			                <figcaption><?php echo get_the_title() ?></figcaption>
+			            </figure>
+			            
+			        <?php endwhile; ?>
+
 				</div>
 
 			<?php else: ?>
@@ -194,7 +191,7 @@
         <div role="heading">
             <a href="" target="_blank">
                 <figure class="title-instagram-user">
-                    <img src="imgs/social/rede_sociais_instagram.png" alt="Instagram">
+                    <img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/imgs/social/rede_sociais_instagram.png" alt="Instagram">
                     <figcaption>
                         <strong>@VIDA&amp;ARTE</strong> no Instagram
                     </figcaption>
@@ -231,10 +228,10 @@
             <div class="more-social">
                 <span>+ Redes Sociais</span>
                 <a class="anim-btn" href="" target="_blank">
-                    <img src="imgs/social/rede_sociais_face.png" alt="Facebook">
+                    <img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/imgs/social/rede_sociais_face.png" alt="Facebook">
                 </a>
                 <a class="anim-btn" href="" target="_blank">
-                    <img src="imgs/social/rede_sociais_twitter.png" alt="Twitter">
+                    <img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/imgs/social/rede_sociais_twitter.png" alt="Twitter">
                 </a>
             </div>
         </div>
@@ -258,17 +255,13 @@
 			if (have_posts()): ?>
 
 				<div class="owl-carousel owl-theme slider-sponsors">
-			        <div class="owl-stage-outer">
-			        	<div class="owl-stage">
-			        		<?php while (have_posts()): the_post(); ?>
-				        		<div class="owl-item">
-				        			<figure>
-				        				<?php echo get_the_post_thumbnail(); ?>
-				        			</figure>
-				        		</div>
-			        		<?php endwhile; ?>
-			        	</div>
-			        </div>
+	        		<?php while (have_posts()): the_post(); ?>
+		        		<div class="owl-item">
+		        			<figure>
+		        				<?php echo get_the_post_thumbnail(); ?>
+		        			</figure>
+		        		</div>
+	        		<?php endwhile; ?>
 			    </div>
 
 			<?php else: ?>
