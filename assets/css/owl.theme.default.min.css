@@ -20,7 +20,6 @@
     margin: 5px;
     padding: 4px 7px;
     background: transparent;
-/*    display: inline-block;*/
     cursor: pointer;
     border-radius: 3px
 }
@@ -62,7 +61,7 @@
 .owl-theme .owl-dots .owl-dot:hover span {
     background: #869791
 }
-.owl-nav {
+.slider-sponsors .owl-nav {
     position: absolute;
     width: 100%;
     left: 0;
@@ -71,10 +70,28 @@
     justify-content: space-between;
     flex-direction: row
 }
-.owl-item {
+.artists .owl-nav {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: calc(50% - 24px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row
+}
+.artists .owl-stage-outer {overflow: hidden}
+.artists .owl-item {
+    height: 211px
+}
+.artists .owl-item,
+.slider-sponsors .owl-item {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.owl-item.active {border-right: 1px solid #333;}
-.center.active ~ .owl-item.active {border-right: 0}
+.slider-sponsors .owl-item.active {border-right: 1px solid #333;}
+.slider-sponsors .center.active ~ .owl-item.active {border-right: 0}
+
+@media screen and (max-width: 991px) {
+    .slider-sponsors .owl-item.active {border: 0}
+}

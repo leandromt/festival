@@ -28,7 +28,7 @@
 }
 /*============== ARTICLES ==============*/
 article {
-    padding: 0 0 50px;
+    padding: 0 0 80px;
 }
 article:last-of-type {
     padding: 0
@@ -36,10 +36,26 @@ article:last-of-type {
 /*============== BACKGROUNDS ==============*/
 body {
     background-color: #16071F;
-    background-image: url("../imgs/vida_e_arte.PNG"),url("../imgs/bg_vida_e_arte.PNG");
-    background-repeat: repeat-x;
+    background-image: url("../imgs/vida_e_arte.png"),url("../imgs/bg_vida_e_arte.png");
+    background-repeat: no-repeat, repeat-x;
     background-position: center bottom 60px,0 757px;
-    background-size: 100%,auto;
+    background-size: 100%,contain;
+    overflow-x: hidden;
+}
+/*============== ANIMACAO DO LOGO ==============*/
+.path {
+    stroke-dasharray: 2923.253173828125;
+    stroke-dashoffset: 0;
+    animation: dash 5s linear;
+}
+
+@keyframes dash {
+    from {
+        stroke-dashoffset: 2923.253173828125;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
 }
 /*============== TITULOS E TEXTO ==============*/
 h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
@@ -113,18 +129,29 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     left: 0;
     z-index: 9;
     width: 100%;
+    -webkit-transition: background 500ms ease;
+    -moz-transition: background 500ms ease;
+    -ms-transition: background 500ms ease;
+    -o-transition: background 500ms ease;
+    transition: background 500ms ease;
 }
+/* a classe .rolling eh aplicada quando a pagina rola */
+.nav-wrap.rolling {background-color: rgba(18, 6, 35, .85)}
 .float-nav {
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    -webkit-transition: background 1s ease;
-    -moz-transition: background 1s ease;
-    -ms-transition: background 1s ease;
-    -o-transition: background 1s ease;
-    transition: background 1s ease;
-    position: relative
+    position: relative;
+    max-width: 1140px;
+}
+.menu-wrap ul {
+    list-style: none;
+    margin: 0;
+    display: inline-block
+}
+.menu-wrap ul li {
+    display: inline-block
 }
 .logo-bar {
     width: auto;
@@ -139,14 +166,12 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     -o-transition: all 2s ease;
     transition: all 2s ease;
 }
-.float-nav.rolling .logo-bar {opacity: 1}
+.nav-wrap.rolling .logo-bar {opacity: 1}
 .logo-bar img {
     width: auto;
     height: 20px;
 }
-/* a classe .rolling eh aplicada quando a pagina rola */
-.float-nav.rolling {background-color: rgba(0, 0, 0, .7)}
-.float-nav a {
+.menu-wrap a {
     padding: 0 10px;
     font-size: 18px;
     -webkit-transition: all 300ms ease;
@@ -155,12 +180,19 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
 }
-.float-nav > a:hover {
+.menu-wrap a:hover {
     color: #ec3e5f
 }
-.social-btns {margin-left: 30px}
+.social-btns {margin-left: 30px; display: inline-block}
 .social-btns a {
     padding: 5px;
+}
+.social-btns h5 {
+    margin: 10px;
+    font-weight: 100;
+    font-family: 'SourceSansPro-Regular', sans-serif;
+    font-size: 18px;
+    display: none
 }
 /*============== HEADER DA PAGINA ==============*/
 .header-page {
@@ -207,9 +239,10 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
     background-repeat: no-repeat;
     background-position: center;
     top: -10px;
+    display: none
 }
-.countDown:before {background-image: url("../imgs/contagem_regressiva_esquerda.PNG"); left: -290px}
-.countDown:after {background-image: url("../imgs/contagem_regressiva_direita.PNG"); right: -290px}
+.countDown:before {background-image: url("../imgs/contagem_regressiva_esquerda.png"); left: -290px}
+.countDown:after {background-image: url("../imgs/contagem_regressiva_direita.png"); right: -290px}
 
 .countDown span {
     display: inline-block;
@@ -264,6 +297,80 @@ h1,h2,h3,h4,h5,h6 {font-family: 'SourceSansPro-Black';}
 .countDown span#seconds.singular:after {
     content: "Segundo"
 }
+/*============== BOTAO HAMBURGUER DO MENU ==============*/
+.hamburguer {
+    width: 35px;
+    height: 20px;
+    display: none;
+    position: relative;
+    background: none;
+    margin: 0 0 10px 0;
+}
+
+.hamburguer:after,
+.hamburguer:before,
+.hamburguer span,
+.hamburguer label {
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    left: 0;
+    position: absolute;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+.hamburguer:before {
+    top: 0;
+}
+
+.hamburguer:after {
+    bottom: 0;
+}
+
+.hamburguer:focus {
+    outline: none;
+}
+
+.hamburguer label {
+    width: 100%;
+    height: 100px;
+    background: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburguer span {
+    top: 8px;
+}
+
+#change-hamburguer {
+    display: none;
+}
+
+#change-hamburguer:checked ~ .hamburguer:before,
+#change-hamburguer:checked ~ .hamburguer:after {
+    top: 10px;
+    margin-top: -10%;
+}
+
+#change-hamburguer:checked ~ .hamburguer:before {
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#change-hamburguer:checked ~ .hamburguer:after {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#change-hamburguer:checked ~ .hamburguer span {
+    opacity: 0;
+}
 /*============== CONTEÚDO [HOME] ==============*/
 a.anim-btn > img {
     -webkit-transition: all 300ms ease;
@@ -307,7 +414,7 @@ a.anim-btn:hover > img {
 .sobre-imgs {
     position: relative;
 }
-.sobre-imgs figure {
+.figures-wrap figure {
     display: inline-block;
     -webkit-transition: all 2s ease;
     -moz-transition: all 2s ease;
@@ -315,8 +422,11 @@ a.anim-btn:hover > img {
     -o-transition: all 2s ease;
     transition: all 2s ease;
     position: relative;
-    z-index: 1
+    z-index: 1;
+    width: 159px;
+    height: auto
 }
+.figures-wrap figure img {width: 100%; height: auto}
 .sobre-imgs figure:after {
     content: "";
     background-repeat: no-repeat;
@@ -349,7 +459,7 @@ a.anim-btn:hover > img {
     transform: translateY(-50px);
 }
 .bg-trailer {
-    background-image: url("../imgs/arabesco_video.PNG");
+    background-image: url("../imgs/arabesco_video.png");
     background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
@@ -359,6 +469,12 @@ a.anim-btn:hover > img {
     max-height: 480px;
     overflow: hidden;
     margin: 0 auto
+}
+.item-novidades {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px
 }
 .item-novidades figure {
     width: 100%;
@@ -377,7 +493,7 @@ a.anim-btn:hover > img {
     -o-transition: all 500ms ease;
     transition: all 500ms ease;
 }
-.item-novidades:hover > figure img {
+.item-novidades a:hover > figure img {
     filter: brightness(100%);
 }
 .item-novidades figcaption {
@@ -389,13 +505,22 @@ a.anim-btn:hover > img {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1em;
-    max-height: 64px;
+    max-height: 63px;
 }
 .attractions {
     background-image: url("../imgs/arabesco_atracoes.png");
     background-position: top right;
     background-repeat: no-repeat;
     position: relative;
+}
+.main-attraction {
+    width: 100%;
+    max-width: 690px;
+    height: auto;
+}
+.main-attraction img {
+    width: 100%;
+    height: auto
 }
 .main-attraction {position: relative}
 .main-attraction:before {
@@ -407,36 +532,38 @@ a.anim-btn:hover > img {
     display: block;
     padding: 10px;
     background-color: #fff;
-    left: 50%;
+    left: 70%;
     top: 25px;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 }
 .artists {
-    list-style: none
+    margin-top: 25px
 }
-.artists li {
-    margin: 0 10px 30px 10px;
-    display: inline-block
-}
-.artists li,
-.artists li figure {
-    width: 220px;
+.artists figure {
+    width: 100%;
+    max-width: 220px;
     height: auto;
 }
-.artists li figure img {
-    width: 220px;
-    height: 185px;
+.artists figure img {
+    width: 100%;
+    height: auto
 }
-.artists li figure figcaption {
-    margin-top: 10px;
-    font-family: 'SourceSansPro-Black';
-    font-size: 20px;
-    text-transform: uppercase;
+.artists figure figcaption {
     overflow: hidden;
-    width: 220px;
     text-overflow: ellipsis;
-    white-space: nowrap
+    white-space: nowrap;
+    padding-right: 5px
 }
-.title-instagram-user {margin-bottom: -85px}
+.white-arrow {filter: invert(100%)}
+.title-instagram-user {
+    margin-bottom: -85px;
+    margin-left: 25px;
+}
 .title-instagram-user img {
     width: 38px;
     height: 38px;
@@ -451,7 +578,7 @@ a.anim-btn:hover > img {
     font-family: 'SourceSansPro-Black';
 }
 .separator {
-    background-image: url("../imgs/elemento_musical_rede_social.PNG");
+    background-image: url("../imgs/elemento_musical_rede_social.png");
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center;
@@ -466,11 +593,22 @@ a.anim-btn:hover > img {
     overflow: hidden;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
 }
 .instagram-feed a {
     display: none;
     background: transparent;
     position: absolute;
+}
+.instagram-feed.insta-mobile a {
+    display: inline-block;
+    position: relative;
+    margin: 5px;
+    overflow: hidden;
+    width: 195px;
+    height: 195px;
 }
 .instagram-feed a:hover {
     z-index: 9
@@ -501,7 +639,7 @@ a.anim-btn:hover > img {
 .bg-light {
     background-color: #fff;
     padding: 100px 15px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     overflow: hidden;
 }
 .slider-sponsors {
@@ -510,7 +648,7 @@ a.anim-btn:hover > img {
     position: relative;
     height: 30px;
 }
-.slider-sponsors figure,.owl-item {
+.slider-sponsors figure > .owl-item {
     width: 190px;
     height: 100px;
 }
@@ -544,14 +682,14 @@ a.anim-btn:hover > img {
     z-index: -1;
 }
 .newspaper:before {
-    width: 190px;
-    height: 335px;
+    width: 100%;
+    height: 100%;
     left: 5px;
     top: 5px;
     background-color: #580A6B;
 }
 .newspaper:after {
-    background-image: url("../imgs/arabesco_caderno_vida_e_arte_jornal.PNG");
+    background-image: url("../imgs/arabesco_caderno_vida_e_arte_jornal.png");
     width: 146px;
     height: 238px;
     right: 0;
@@ -591,14 +729,14 @@ a.anim-btn:hover > img {
     width: 350px;
     height: 420px;
     position: relative;
-    background-image: url("../imgs/aplicativo_vida_e_arte.PNG");
+    background-image: url("../imgs/aplicativo_vida_e_arte.png");
     background-size: cover;
     overflow: hidden
 
 }
 .smartphone-screen {
     width: 308px;
-    height: 339px;
+    height: auto;
     position: absolute;
     top: 81px;
     left: 19px
@@ -610,9 +748,18 @@ a.anim-btn:hover > img {
 .vertical-centered {
     display: flex;
     align-items: center;
+    flex-wrap: wrap
 }
 .app-wrap a {
     margin-right: 15px;
+}
+.app-wrap figure {
+    width: 100%;
+    padding: 0 15px
+}
+.app-wrap figure img {
+    width: 100%;
+    height: auto
 }
 footer {
     height: 60px;
@@ -662,10 +809,10 @@ footer {
     align-items: center;
 }
 .modal {
-    width: 100%;
-    max-width: 500px;
-    height: 100%;
-    max-height: 400px;
+    width: 98%;
+    max-width: 750px;
+    height: 99%;
+    max-height: 600px;
     background-color: #fff;
     position: relative
 }
@@ -678,13 +825,236 @@ footer {
     outline: 0;
     position: absolute;
     right: 10px;
-    top: 20px;
-    line-height: 0
+    top: 0;
+    line-height: 1em
 }
+.btn-close:hover {
+    color: #EE3E5F
+}
+.btn-social-mobile {
+    display: none
+}
+/*============== MEDIA QUERIES ==============*/
+@media screen and (max-width: 1199px) {
+    .sobre-imgs {
+        display: flex;
+        justify-content: center;
+    }
+    .figures-wrap figure {
+        width: 130px
+    }
+    .vertical-centered {
+        flex-direction: column-reverse
+    }
+    .wrap-caderno {background-size: 130px}
+    .smartphone-wrap {
+        align-items:center;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .app-wrap a {display: none}
+    .app-wrap p {
+        padding: 0 15px;
+    }
+    .app-wrap {
+        text-align: center;
+        margin-bottom: 30px
+    }
+    .btn-social-mobile {
+        display: inline-block;
+    }
+    .btn-social-mobile a {
+        display: block;
+        margin: 10px 15px;
+    }
+    body {
+        background-color: #150720;
+        background-image: url("../imgs/vida_e_arte.png"),url("../imgs/bg_mobile.png");
+        background-position: bottom left, 0 757px;
+        background-size: unset;
+    }
+}
+@media screen and (max-width: 991px) {
+    .welcome-title {
+        display: inline-block;
+        text-align: center;
+        margin-left: -35px
+    }
+    .welcome-title:after {left: calc(50% + 90px);}
+    .about {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 16.66666667%;
+    }
+    .about p {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .logos-content {
+        display: flex;
+        justify-content: center;
+        flex-direction: row
+    }
+    .menu-wrap .social-btns {padding: 15px 10px}
+    .nav-wrap {background-color: rgba(18, 6, 35, .85)}
+    .logo-bar {opacity: 1}
+    .hamburguer {display: block}
+    .menu-wrap {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        z-index: 10;
+        background: rgba(18, 6, 35, .85);
+    }
+    .menu-wrap ul,
+    .menu-wrap ul li {
+        display: block;
+        padding: 0
+    }
+    .menu-wrap > a {
+        display: block;
+        padding: 5px 15px;
+        font-size: 20px;
+    }
+    .video-wrap,
+    .attractions {padding: 0 15px}
+    .attractions {background-size: contain}
+    .main-attraction:before {
+        left: -12px;
+        top: unset;
+        bottom: 25px;
+    }
+    .item-novidades figure img {
+        filter: brightness(100%);
+    }
+    .newspaper {
+        -moz-transform: rotate(-16deg);
+        -webkit-transform: rotate(-16deg);
+        -o-transform: rotate(-16deg);
+        -ms-transform: rotate(-16deg);
+        transform: rotate(-16deg);
+    }
+    .newspaper:after {right: -141px; opacity: 1}
+}
+@media screen and (max-width: 767px) {
+    .about {margin-left: 0}
+    .artists figure figcaption {font-size: 25px}
+    .title-caderno span:nth-of-type(1),
+    .title-caderno span:nth-of-type(2) {
+        font-size: 35px;
+        line-height: 32px;
+    }
+    .title-caderno small {
+        display: block;
+        line-height: 26px
+    }
+}
+@media screen and (max-width: 580px) {
+    .countDown:before, .countDown:after {display: none}
+    .newspaper {width: 150px}
+    .newspaper:after {
+        top: 127px;
+        background-size: 115px;
+        background-repeat: no-repeat;
+    }
+}
+@media screen and (max-width: 520px) {
+    .smartphone-frame {
+        width: 85px;
+        height: 105px;
+    }
+    .smartphone-screen {
+        width: 78px;
+        top: 20px;
+        left: 4px;
+    }
+    .menu-wrap {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        padding-top: 5%
+    }
+    .menu-wrap ul li {
+        font-size: 25px;
+        border-top: 1px solid #fff;
+        border-left: 0;
+        border-right: 0;
+        padding-left: 9%
+    }
+    .menu-wrap ul li:last-of-type {
+        border-bottom: 1px solid #fff
+    }
+    .social-btns a {
+        padding: inherit
+    }
+    .social-btns a img {
+        width: 35px;
+        height: 35px;
+    }
+    .social-btns {
+        margin: 10% auto 0;
+        display: block;
+        padding: 0;
+        width: 300px;
+        text-align: center
+    }
+    .social-btns h5 {display: block}
+}
+@media screen and (max-width: 432px) {
+    .countdown-wrap {
 
-
-
-
+    }
+    .countDown span {width: 50px}
+    .countDown span:after {display: none}
+    .countDown span:before {
+        position: absolute;
+        top: 55px;
+        left: 0;
+        font-size: 16px;
+        text-align: center;
+        width: 50px
+    }
+    .countDown span#days:before {content: "DIAS"}
+    .countDown span#hours:before {content: "HORAS"}
+    .countDown span#minutes:before {content: "MIN."}
+    .countDown span#seconds:before {content: "SEG."}
+    .newspaper {
+        width: 84px;
+    }
+    .newspaper:after {
+        background-size: 36px;
+        top: 101px;
+        right: -127px;
+    }
+    .newspaper.rotate:after {right: -127px}
+}
+@media screen and (max-width: 375px) {
+    .main-attraction:before {font-size: 40px}
+    .footer-content figure figcaption {display: none}
+    .title-caderno span:nth-of-type(1), .title-caderno span:nth-of-type(2) {
+        font-size: 22px;
+        line-height: 25px;
+    }
+    .wrap-caderno {
+        background-size: 67px;
+    }
+    .logo-bar a {
+        display: block;
+        width: 200px;
+    }
+    .logo-bar a img {
+        width: 100%;
+        height: auto
+    }
+    .title-bold {font-size: 40px}
+    .artists figure figcaption {
+        font-size: 17px;
+        text-align: center
+    }
+    .item-novidades figcaption {font-size: 24px;}
+}
 
 
 

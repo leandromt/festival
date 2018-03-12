@@ -46,14 +46,28 @@ var x = setInterval(function() {
         $('#seconds').removeClass('singular');
     }
 
-    // quando a contagem acaba remove o elemento 'countdown-wrap'
+    // quando a contagem acaba esconde o elemento 'countdown-wrap'
     if (distance < 0) {
         clearInterval(x);
         $('.countdown-wrap').remove();
     }
 }, 1000);
 
-// ADICIONA A CLASS ROLLING AO MENU E ANIMA IMAGENS DA HOME
+// ABERTURA DO MENU [SOMENTE NO MOBILE]
+$('.hamburguer').click(function(){
+    $('.menu-wrap').slideToggle(300);
+});
+
+// ANCORA ANIMADA DO MENU FLUTUANTE
+$('.menu-wrap ul li a, .btn-trailer, .float-nav > figure a').click(function(anchors) {
+    anchors.preventDefault();
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top - 100
+    }, 500);
+    return false;
+});
+
+// ADICIONA A CLASS 'ROLLING' AO MENU E ANIMA IMAGENS DO TOPO DA HOME
 $(document).scroll(function(){
     posTop = $('#navegation').offset().top;
     posYscreen = $(document).scrollTop();
@@ -61,10 +75,10 @@ $(document).scroll(function(){
     heightScreen = window.screen.height;
     heightScreenCalc = heightScreen / 2;
     if (posTop > 0) {
-        $('.float-nav').addClass('rolling');
+        $('.nav-wrap').addClass('rolling');
     }
     if (posTop == 0) {
-        $('.float-nav').removeClass('rolling');
+        $('.nav-wrap').removeClass('rolling');
     }
     // IMAGENS DA HOME
     if (posYscreen >= posPhotos - heightScreenCalc) {
@@ -75,48 +89,66 @@ $(document).scroll(function(){
     }
 });
 
+// ADICIONA A CLASS 'ROTATE' A FIGURE DO JORNAL
+$(document).scroll(function(){
+    posTop = $('.newspaper').offset().top;
+    posYscreen = $(document).scrollTop();
+    heightScreen = window.screen.height;
+    heightScreenCalc = heightScreen / 2;
+    if (posYscreen >= posTop - heightScreenCalc) {
+        $('.newspaper').addClass('rotate');
+    }
+    if (posYscreen < posTop - heightScreenCalc) {
+        $('.newspaper').removeClass('rotate');
+    }
+});
+
 // CONFIGURA AS FOTOS DO FEED INSTAGRAM
 // funcao 'loop': retorna as imagens pro palco 
-function loop(elemento) {
+var widthScreen = $(window).width();
+if (widthScreen > 1199) {
+    function loop(elemento) {
 
-    var randomTime = Math.floor((Math.random() * 20000) + 10000);
+        var randomTime = Math.floor((Math.random() * 20000) + 10000);
 
-    $(elemento).animate({
-        left: '110%'
-    }, randomTime, 'linear', function(){
-        elemento.style.left = '-25%';
-        loop(elemento);
+        $(elemento).animate({
+            left: '110%'
+        }, randomTime, 'linear', function(){
+            elemento.style.left = '-25%';
+            loop(elemento);
+        });
+    }
+    // posiciona as imagens e chama a função 'loop'
+    $('.instagram-feed a').each(function(contador, elemento) {
+        // define as posicoes TOP, LEFT e tamanho
+        var randomTop = Math.floor((Math.random() * 100) * 2);
+        var randomLeft = Math.floor((Math.random() * 500) * 2);
+        var randomSize = Math.floor((Math.random() * 100) + 200);
+
+        elemento.style.left = randomLeft + 'px';
+        elemento.style.top = randomTop + 'px';
+        elemento.style.width = randomSize + 'px';
+        elemento.style.height = randomSize + 'px';
+
+        // mostra as imagens aleatoriamente
+        $(elemento).delay(randomLeft).fadeIn(300);
+        // para a animacao quando mouse enter
+        $(elemento).mouseenter(function(){
+            $(this).stop();
+        });
+        // continua a animacao quando mouse out
+        $(elemento).mouseout(function(){
+            loop(elemento);
+        });
+        // espera os elementos aparecerem para animar
+        setTimeout(function(){
+            loop(elemento);        
+        }, 300);
+
     });
-
+} else {
+    $('.instagram-feed').addClass('insta-mobile');
 }
-// posiciona as imagens e chama a função 'loop'
-$('.instagram-feed a').each(function(contador, elemento) {
-    // define as posicoes TOP, LEFT e tamanho
-    var randomTop = Math.floor((Math.random() * 100) * 2);
-    var randomLeft = Math.floor((Math.random() * 500) * 2);
-    var randomSize = Math.floor((Math.random() * 100) + 200);
-
-    elemento.style.left = randomLeft + 'px';
-    elemento.style.top = randomTop + 'px';
-    elemento.style.width = randomSize + 'px';
-    elemento.style.height = randomSize + 'px';
-
-    // mostra as imagens aleatoriamente
-    $(elemento).delay(randomLeft).fadeIn(300);
-    // para a animacao quando mouse enter
-    $(elemento).mouseenter(function(){
-        $(this).stop();
-    });
-    // continua a animacao quando mouse out
-    $(elemento).mouseout(function(){
-        loop(elemento);
-    });
-    // espera os elementos aparecerem para animar
-    setTimeout(function(){
-        loop(elemento);        
-    }, 300);
-
-});
 
 // CARROSSEL PATROCINADORES
 $(".slider-sponsors").owlCarousel({
@@ -127,5 +159,72 @@ $(".slider-sponsors").owlCarousel({
     autoplay:true,
     autoplayHoverPause:true,
     center:true,
-    navText: ["<img src='imgs/botao_esquerda.png' alt='Voltar' title='Voltar'>","<img src='imgs/botao_direita.PNG' alt='Avançar' title='Avançar'>"],
+    navText: ["<img src='imgs/botao_esquerda.png' alt='< Anterior' title='Anterior'>","<img src='imgs/botao_direita.png' alt='Proximo >' title='Proximo'>"],
+    responsive : {
+        0 : {
+            items:1,
+        },
+        768 : {
+            items:2,
+            nav:true,
+            touchDrag:true,
+            center:false
+        },
+        1024 : {
+            items:3,
+            mouseDrag:false,
+            nav:true,
+            center:true
+        }
+    }
+});
+
+// CARROSSEL ARTISTAS
+$(".artists").owlCarousel({
+    loop:true,
+    nav:true,
+    dots:false,
+    autoplay:true,
+    autoplayHoverPause:true,
+    center:true,
+    navText: ["<img class='white-arrow' src='imgs/botao_esquerda.png' alt='< Anterior' title='Anterior'>","<img class='white-arrow' src='imgs/botao_direita.png' alt='Proximo >' title='Proximo'>"],
+    responsive : {
+        0 : {
+            items:2,
+            touchDrag:true,
+            center:true,
+            nav:false,
+            margin:10
+        },
+        480 : {
+            items:2,
+            nav:false,
+        },
+        768 : {
+            items:3
+        },
+        1024 : {
+            items:4,
+            mouseDrag:false,
+            nav:true,
+            center:false
+        }
+    }
+});
+
+// ABRIR E FECHAR EXPEDIENTE
+// abre expediente:
+$('#expedient').click(function(){
+    $('.overlay').fadeIn(300);
+    $('.modal').delay(500).slideDown(300);
+    $('body').css('overflow','hidden');
+});
+// fecha expediente:
+$(document).click(function(obj){
+    target = obj.target.className;
+    if (target == 'overlay' || target == 'btn-close') {
+        $('.modal').slideUp(300);
+        $('.overlay').delay(500).fadeOut(300);
+        $('body').removeAttr('style');
+    }
 });

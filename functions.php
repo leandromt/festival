@@ -97,7 +97,7 @@ class FestivalTheme {
     }
  
 	// FESTIValtheme navigation
-	public static function festivaltheme_nav() {
+	/*public static function festivaltheme_nav() {
 
         $args = array(
             'menu'            => '',
@@ -120,7 +120,7 @@ class FestivalTheme {
 
         wp_nav_menu($args);
 
-	}
+	}*/
 
 	// Load festivaltheme scripts (header.php)
 	/*public function festivaltheme_header_scripts() {
@@ -180,8 +180,11 @@ class FestivalTheme {
     public function festivaltheme_admin_remove_menu () 
     { 
        remove_menu_page('edit.php'); // Posts
-       remove_menu_page( 'edit.php?post_type=page' ); // Pages
-       remove_menu_page( 'edit-comments.php' );  // Comments
+       remove_menu_page('edit.php?post_type=page'); // Pages
+       remove_menu_page('edit-comments.php');  // Comments
+       remove_menu_page('tools.php'); //Tools
+       remove_menu_page('index.php'); //Dashboard
+       remove_menu_page('plugins.php'); //Plugins
     } 
 
 
@@ -193,7 +196,7 @@ class FestivalTheme {
             array(
                 'labels' => array(
                     'name'                  => __( 'Novidades'),
-                    'singular_name'         => __( 'Novidaed'),
+                    'singular_name'         => __( 'Novidade'),
                     'add_new_item'          => __( 'Adicionar nova Novidade'),
                     'edit_item'             => __( 'Editar Novidade'),
                     'search_items'          => __( 'Pesquisar Novidades'),
@@ -308,6 +311,8 @@ class FestivalTheme {
 new FestivalTheme();
 
 ?>
+
+
 
 
 
