@@ -36,7 +36,18 @@
                 <label for="change-hamburguer"></label>
             </div>
             <div class="menu-wrap">
-                <?php wp_nav_menu() ?>
+                <?php 
+
+                $defaults = array(
+					'container'       => false, 
+					'container_class' => false, 
+					'echo'            => false,
+					'fallback_cb'     => false,
+					'depth'           => 0
+				); ?>
+				<ul>
+					<?php echo strip_tags(wp_nav_menu( $defaults ), '<a>'); ?>
+				</ul>
                 <?php 
 		        	/* Show Menu Pages */
 					/*

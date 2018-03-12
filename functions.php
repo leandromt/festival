@@ -158,6 +158,7 @@ class FestivalTheme {
 	public function festivaltheme_styles() {
 
         // CSS
+        wp_enqueue_style('style', TEMPLATE_DIRETORY_URI .'/style.css');
         wp_enqueue_style('base', TEMPLATE_DIRETORY_URI .'/assets/css/base-fva.css');
         wp_enqueue_style('estilo', TEMPLATE_DIRETORY_URI .'/assets/css/estilo-fva.css');
         wp_enqueue_style('animations', TEMPLATE_DIRETORY_URI .'/assets/css/animations.css');

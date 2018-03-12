@@ -11,4 +11,12 @@ Tags: festival, festas, shows, cursos, eventos
 Text Domain: festival
 */
 
-.nojq, #wpadminbar { display: none !important; }
+body.admin-bar {
+	margin-top: -32px;
+	padding-bottom: 32px;
+}
+
+#wpadminbar {
+	top: auto !important;
+	bottom: 0;
+}

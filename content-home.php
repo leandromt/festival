@@ -153,9 +153,10 @@
 			$args = array('post_type'=>array('posts', 'programacao'), 'offset' => '1');
 			query_posts($args); 
 
+
 			if (have_posts()): ?>
 
-				<div class="owl-carousel artists owl-loaded">
+				<div class="owl-carousel artists">
 				    <div class="owl-stage-outer">
 				        <div class="owl-stage">
 							
@@ -184,7 +185,7 @@
 	<!-- /PROGRAMACAO -->
 
 
-	
+
 
 
 	<!-- INSTAGRAM -->
@@ -256,7 +257,7 @@
 
 			if (have_posts()): ?>
 
-				<div class="owl-carousel owl-theme slider-sponsors owl-loaded">
+				<div class="owl-carousel owl-theme slider-sponsors">
 			        <div class="owl-stage-outer">
 			        	<div class="owl-stage">
 			        		<?php while (have_posts()): the_post(); ?>
