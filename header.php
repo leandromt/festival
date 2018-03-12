@@ -80,15 +80,10 @@
 	        <h2 class="title-time-remain">FALTAM</h2>
 
 	        <?php // Script JS Count Down Date - Initialize and End Date
-
-	        	$now = new DateTime(null, new DateTimeZone('America/Fortaleza'));
-				$now = $now->getTimestamp();
-
 	        	echo '<script>';
 	        	echo 'var countDownDate = new Date("Mar 26, 2018 12:00:00").getTime();';
-	        	echo 'var now = ' . $now;
+	        	echo 'var now = ' . FestivalTheme::festivaltheme_get_time_now();
 	        	echo '</script>';
-	        	 
 	        ?>
 
 	        <div class="countDown">
