@@ -309,12 +309,6 @@ class FestivalTheme {
     }
 
 
-    public function festivaltheme_get_time_now (){
-        $now = new DateTime(null, new DateTimeZone('America/Fortaleza'));
-        return $now->getTimestamp();
-    }
-
-
 }
  
 new FestivalTheme();

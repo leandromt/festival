@@ -76,22 +76,39 @@
 	    <figure class="logo-fva">
 	        <img src="<?php echo TEMPLATE_DIRETORY_URI ?>/assets/imgs/logo_vida_e_arte.png" alt="Vida &amp; Arte">
 	    </figure>
-	    <div class="countdown-wrap" role="marquee">
-	        <h2 class="title-time-remain">FALTAM</h2>
 
-	        <?php // Script JS Count Down Date - Initialize and End Date
-	        	echo '<script>';
-	        	echo 'var countDownDate = new Date("Mar 26, 2018 12:00:00").getTime();';
-	        	echo 'var now = ' . FestivalTheme::festivaltheme_get_time_now();
-	        	echo '</script>';
-	        ?>
+        <?php // Script JS Count Down Date - Initialize and End Date
 
-	        <div class="countDown">
-	            <span id="days">84</span>
-	            <span id="hours">21</span>
-	            <span id="minutes" class="">38</span>
-	            <span id="seconds" class="">05</span>
-	        </div>
-	    </div>
+        	$args = array('post_type'=>'datadoevento', 'post_status' => array('future'), 'posts_per_page' => '1');
+			query_posts($args);
+
+
+			if (have_posts()): ?>
+
+				<div class="countdown-wrap" role="marquee">
+	        		<h2 class="title-time-remain">FALTAM</h2>
+
+					<?php while (have_posts()): the_post();
+
+						$data_do_evento = get_the_date('M j, Y') . ' ' . get_the_time('g:i:s');
+
+					?>
+						<script>
+				        	<?php echo 'var countDownDate = new Date("' . $data_do_evento .'").getTime();'; ?>
+				        </script>
+
+				        <div class="countDown">
+				            <span id="days">0</span>
+				            <span id="hours">0</span>
+				            <span id="minutes" class="">0</span>
+				            <span id="seconds" class="">0</span>
+		        		</div>
+
+	        		<?php endwhile; ?>
+
+		    	</div>
+
+        	<?php endif; wp_reset_query(); ?>
+
 	</header>
 	<!-- /HEADER -->

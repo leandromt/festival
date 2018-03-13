@@ -51,7 +51,7 @@
 
 		<?php // Get Sigle Post Trailer
 			
-			$args = array('post_type'=>array('posts', 'trailer'), 'posts_per_page' => '1');
+			$args = array('post_type'=>'trailer', 'posts_per_page' => '1');
 			query_posts($args);
 
 			if (have_posts()): 
@@ -89,7 +89,7 @@
 
 		<?php // Get 3 Last Posts
 
-			$args = array('post_type'=>array('posts', 'novidades'), 'posts_per_page' => '3');
+			$args = array('post_type'=>'novidades', 'posts_per_page' => '3');
 			query_posts($args); 
 			
 			if (have_posts()): 
@@ -127,7 +127,7 @@
 
 
 			// Get first posts type programacao
-			$args = array('post_type'=>array('posts', 'programacao'), 'posts_per_page' => '1');
+			$args = array('post_type'=>'programacao', 'posts_per_page' => '1');
 			query_posts($args);
 
 			if (have_posts()):
@@ -150,7 +150,7 @@
 
 
 			// Get other posts type programacao
-			$args = array('post_type'=>array('posts', 'programacao'), 'offset' => '1');
+			$args = array('post_type'=>'programacao', 'offset' => '1');
 			query_posts($args); 
 
 
@@ -249,7 +249,7 @@
 
 		<?php // Get All Posts Type Patrocinadores
 
-			$args = array('post_type'=>array('posts', 'patrocinadores'));
+			$args = array('post_type'=>'patrocinadores');
 			query_posts($args);
 
 			if (have_posts()): ?>
@@ -285,7 +285,7 @@
             
     	<?php // Get All Posts Type Patrocinadores
 
-			$args = array('post_type'=>array('posts', 'caderno'), 'posts_per_page' => '1');
+			$args = array('post_type'=>'caderno', 'posts_per_page' => '1');
 			query_posts($args);
 
 			if (have_posts()):
